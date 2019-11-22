@@ -46,6 +46,9 @@ Development
 ### Arduino 
 **Traffic Light Program**
 
+This is the virtual circuit: 
+
+
 ```sh 
 int redLight = 13; 
 int yellowLight = 12;
