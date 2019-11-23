@@ -315,11 +315,152 @@ void loop() {
 In this program the code becomes very long, but essentially we are doing the same thing in table 1 and 2, but with a lnger process, since there is one more input to consider.
 
 ### 4. Using Binary Gates for Weekend Task
+**Table 1**
 
+Using the same table as before, we are going to another code that performs exactly the same thing, but with a different method. By using binary gates. This is table for the first output.
 
- 
+| b\a | 0 | 1 |
+| --- | --- | --- |
+| 0 | 1 | 1 |
+| 1 | 0 | 0 | 
 
+What we can observe here is that, the light turns on (becomes 1) when the button a and b are both 0 and, when button a is 1 and b is 0. These are the 2 scenarios that the led out1 turns on. Therefore, by using the concept of binary gates, we can come up with the equation `NOT B`. When "Not B", out1 turns on. Now that we sorted out out1, we also need to think about out2. 
 
+| b\a | 0 | 1 |
+| --- | --- | --- |
+| 0 | 0 | 1 |
+| 1 | 1 | 0 |
+
+This is the table for out2. The equation for when the out2 turns on is `(NOT A) AND B OR A AND (NOT B)`. Therefore, the  previous code can be modified as in the following: 
+
+```sh 
+int butA = 13;
+int butB = 12;
+int out1 = 3;
+int out2 = 4;
+
+void setup() {
+  pinMode(butA, INPUT);
+  pinMode(butB, INPUT);
+  pinMode(out1, OUTPUT);
+  pinMode(out2, OUTPUT);
+}
+
+void loop() {
+  bool A = digitalRead(butA);
+  bool B = digitalRead(butB);
+  
+  bool eq1 = !B;
+  bool eq2 = !A & B | !B & A;
+  
+  digitalWrite(out1, eq1);
+  digitalWrite(out2, eq2);
+}
+```
+
+By using binary gates the code becomes a lot more concise, and still it does the exact same thing. 
+
+**Table2**
+This is essentially the same step: 
+1. Create a table for both out1 and out2
+2. Then come up with equations for each output using binary gates
+Firstly, this is the table for out1:
+
+| b\a | 0 | 1 |
+| --- | --- | --- |
+| 0 | 1 | 0 |
+| 1 | 0 | 1 |
+
+Then by looking at the table, we can find the equation for when out1 turn on. In this case it is
+`(NOT A AND NOT B) OR (A AND B)`. For the out2, this is the table: 
+
+| b\a | 0 | 1 |
+| --- | --- | --- |
+| 0 | 0 | 1 |
+| 1 | 1 | 1 |
+
+In this other case, we can come up with the equation `A OR B`. Using these tables and binary gates equations, we can come with the following code: 
+```sh 
+int butA = 13;
+int butB = 12;
+int out1 = 3;
+int out2 = 4;
+
+void setup() {
+  pinMode(butA, INPUT);
+  pinMode(butB, INPUT);
+  pinMode(out1, OUTPUT);
+  pinMode(out2, OUTPUT);
+}
+
+void loop() {
+  bool A = digitalRead(butA);
+  bool B = digitalRead(butB);
+  
+  bool eq1 = !A & !B | A & B;
+  bool eq2 = A | B
+  
+  digitalWrite(out1, eq1);
+  digitalWrite(out2, eq2);
+}
+```
+
+This is the modified code. As mentioned before, it does the exact same performance.
+
+**Table 3**
+The same step is taken in this one, but with one more input. The table would be like this below.
+
+Table for out1: 
+
+| c\ab | 00 | 01 | 11 | 10 |
+| --- | --- | --- | --- | --- |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 | 
+
+Table for out2: 
+
+| c\ab | 00 | 01 | 11 | 10 |
+| --- | --- | --- | --- | --- |
+| 0 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 1 | 1 | 
+
+Then we find the equation that best fits the conditions in the table, using bunary gates.
+
+Equation for out1: `NOT A OR B OR C`
+
+Equation for out2: `NOT A AND NOT B OR A`
+
+This is code for table 3: 
+
+```sh 
+int butA = 13;
+int butB = 12;
+int butC = 11;
+int out1 = 3;
+int out2 = 4;
+
+void setup() {
+  pinMode(butA, INPUT);
+  pinMode(butB, INPUT);
+  pinMode(butC, INPUT);
+  pinMode(out1, OUTPUT);
+  pinMode(out2, OUTPUT);
+}
+
+void loop() {
+  bool A = digitalRead(butA);
+  bool B = digitalRead(butB);
+  bool C = digitalRead(butC);
+  
+  bool eq1 = !A | B | C;
+  bool eq2 = !A & !B | A;
+  
+  digitalWrite(out1, eq1);
+  digitalWrite(out2, eq2);
+}
+```
+
+This should essentially perform the same thing with the previous code, with long for loops. In conclusion, by using binary gates, it allows us to make the code more simple and line efficient. 
 
 
 
