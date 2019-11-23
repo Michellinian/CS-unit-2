@@ -398,7 +398,7 @@ void loop() {
   bool B = digitalRead(butB);
   
   bool eq1 = !A & !B | A & B;
-  bool eq2 = A | B
+  bool eq2 = A | B;
   
   digitalWrite(out1, eq1);
   digitalWrite(out2, eq2);
@@ -461,6 +461,7 @@ void loop() {
 ```
 
 This should essentially perform the same thing with the previous code, with long for loops. In conclusion, by using binary gates, it allows us to make the code more simple and line efficient. 
+
 
 
 
