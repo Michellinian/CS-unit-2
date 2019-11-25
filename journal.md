@@ -26,4 +26,10 @@ In today's class we first used binary gates to actually code the weekend task. A
 ### Class 6 (2019/11/21)
 
 We used our previous knowledge about arduino, binary, and binary gated, to create a digital number output system. We tried to recreate the numbers sometimes diplayed on alarm clocks, where there are 7 lines organized in an 8 shape, and by changing the place where led turns on, it can be any nunmber from 0 to 9. We tried creating that using arduino. We first made a table, to show the behaviors of all the leds though 1 to 7, and then we create the equation for each leds. After trying it inside the tinkercad app, we physically created the circuit, and we used a cardboard to represent the digital number display. We penetrated 7 leds, in an 8 shape. We did not finish creating this circuit so we hope to finish in the next lesson.
-For this class, we started creating another circuit. We
+For this class, we started creating another circuit. 
+
+### Class 7: Absent 
+
+### Class 8 (2019/11/25)
+
+Todays task: "Enter English text then show in the serial monitor, and then use the led screen"
