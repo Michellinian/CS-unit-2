@@ -9,6 +9,7 @@ Contents
 3. Design 
 4. Development 
 5. Evaulation 
+6. Resources
 
 
 Keywords
@@ -44,6 +45,15 @@ This is the table of the binary numbers from 0 to 16. From this table we observe
 
 ### Usability
 
+According to Interaction Design Foundation, usability refers to the ease of access or use of a product or a website. Furthermore the official definition by ISO 9241-11 is “the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.”
+
+### Discoverability 
+
+According to Techopedia, it "refers to users' ability to find key information, applications or services". It allows users to locate some problems, and find new needs, so that they can achieve those needs. 
+
+### Feedback 
+
+According to ComputerScienceWiki, feedback occurs "when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop". 
 
 Planning
 ======
@@ -172,6 +182,9 @@ if (count%4 > 1) {
 }
 ```
 since the 1 means HIGH. The code works like this, and by representing each leds as digits A, B, C, D of binary numbers, we can light the 4 leds in 15 different ways, using the concept of binary numbers.
+
+This is the product:
+![BinaryLed](BinaryLed.mov)
 
 ### Development of Weekend Task
 
@@ -517,6 +530,15 @@ Evaluation
 2. Too many symbols (), {}, etc. 
 3. Slow execution speed (simulation speed is way slower than bash)
 4. Many different commands to remember
+
+
+Resources
+======
+
+[1] IGCSE Computer Science, "Chapter 3-Logic gates and Logic Circuits", https://avyscomputerscienceblog.wordpress.com/chapter-3/, 2019/11/27
+[2] Interaction Design Foundation, "Usabilty", https://www.interaction-design.org/literature/topics/usability, 2019/11/28
+[3] Techopedia, "Discoverability", https://www.techopedia.com/definition/28140/discoverability-design, 2019/11/28
+[4] ComputerScienceWiki, "Feedback", "https://computersciencewiki.org/index.php/Feedback", 2019/11/28
 
 
 
