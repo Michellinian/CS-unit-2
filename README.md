@@ -4,13 +4,14 @@ Martian Decoder
 Contents
 ========
 
-1. PLanning 
-2. Design 
-3. Development 
-4. Evaulation 
+1. Keywords
+2. Planning 
+3. Design 
+4. Development 
+5. Evaulation 
 
 
-Planning
+Keywords
 ======
 
 ### Binary Code
@@ -39,6 +40,10 @@ This is the table of the binary numbers from 0 to 16. From this table we observe
 
 ### Binary Gates
 **What are binary gates?**
+
+
+Planning
+======
 
 Design
 ======
