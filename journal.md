@@ -32,4 +32,8 @@ For this class, we started creating another circuit.
 
 ### Class 8 (2019/11/25)
 
-Todays task: "Enter English text then show in the serial monitor, and then use the led screen"
+Todays task: "Enter English text then show in the serial monitor, and then use the led screen". We started programming the main code for unit 2. Our ultimate task is to create a conversion system from english to binary and vice versa. And in order to do that, our first step was to come up with an idea of how we want the input system to be.  For example, the input that we came up with was creating a display with all the possible letteres and characters, and one button will move the cursor to the right, while the other button was to select the letter. There are various ways to approach this, but we can only use 2 buttons for our input, so it needed to be as efficient as possible. Then after coming up with an idea we started coding. 
+
+### Class 9 (2019/11/27)
+
+This class was also dedicated to creating the incomplete code from last class. But before we did that, first we practiced some possible IB questions. The first question was about some inputs, that make the user easier to access, and the second question was about converting binary into hexadecimal. Both questions, at first I did not understand anything, but after listening to the explanation, I completely understood how to answer the questions. And then after doing this, we went back to developing our code, although at the end of the class, we came up with a "class" idea, about how the input could be. Our final idea was, displaying all the characters, and making the users select by puching the button, although we decided to put the most used letters in front and the least at the very end, so that we can give the users an easier chance the type in the words. Then we worked out the first bit of the code together, and then started developing the rest of the code on our own. 
