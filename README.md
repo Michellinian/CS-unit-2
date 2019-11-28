@@ -40,6 +40,9 @@ This is the table of the binary numbers from 0 to 16. From this table we observe
 
 ### Binary Gates
 **What are binary gates?**
+![BinaryGate](binaryGates.png)
+
+### Usability
 
 
 Planning
