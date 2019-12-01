@@ -116,6 +116,8 @@ This is the virtual circuit of the program:
 
 ![TrafficLightProgram](trafficLight.png)
 
+The following is the actual code of te¥his program:
+
 ```sh 
 // assigning integer for each leds (same number as the arduino input)
 int redLight = 13; 
@@ -277,7 +279,9 @@ void loop() {
   }
 }
 ```
-This code is using conditional statements to decide on which output is HIGH and LOW, depending on which input is HIGH and LOW. 
+This code is using conditional statements to decide on which output is HIGH and LOW, depending on which input is HIGH and LOW.
+This is how the circuit would look like: 
+![WeekendTable1](Weekend1.png)
 
 **Table 2:**
 
