@@ -1,19 +1,21 @@
 Martian Decoder
------------
+======
+
+A program that decodes and translates, between English, morse, and binary. This program is made in arduino (modern c).
 
 Contents
-========
+------
 
-1. Keywords
-2. Planning 
-3. Design 
-4. Development 
-5. Evaulation 
-6. Resources
+1. [Keywords](#keywords)
+2. [Planning](#planning)
+3. [Design](#design)
+4. [Development](#development) 
+5. [Evaulation](#evaluation)
+6. [Resources](#resources)
 
 
 Keywords
-======
+-----
 
 ### Binary Code
 **How does binary number work?**
@@ -56,18 +58,63 @@ According to Techopedia, it "refers to users' ability to find key information, a
 According to ComputerScienceWiki, feedback occurs "when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop". 
 
 Planning
-======
+------
+
+### Opening question
+
+**Consider the case of a challenged person, where they cannot operate a keyboard or a mouse.**
+
+Question: What are some ways where we can provide a more accessible and simpler input for them?
+
+Solutions: 
+1. Eye-motion
+2. Voice input (ex. Siri)
+3. Neural input
+
+There are more ways, but these are some other ways the users can use devices, even though they have some disabilities, and are challenged. 
+
+### Defining the Problem
+
+In this program "Martian Decoder", we will be mainly focusing on how, challenged or disabled users can use our program. The prompt is this: 
+"The year is 2050. The new field of Planet exploration is developing exponentially, although the communication between the planets is sitll precarious. The station in the Earth can only communicate using Morse code, the station in the Moon can only communicate in Binary code.  Communication in Mars must be provided"
+In short there are 3 stations in different planets (and moon), and they all have a specific way communicating: Earth & Mars - morse, Moon - binary. Because they are not compatible, we need to decode everything into English, to create a smoother communication system among the three planets. The requirements are the following: 
+
+1. Communication of Earth - Moon: Morse code
+2. Communication of Moon - Mars: Binary code
+3. Provide communication system that allows stations to communicate in English 
+4. Keyboard input on each stations is limited to onlt two push buttons
+5. 100 lights and buzzers are avaialable
+
+Following these requirements we need to create an appropriate program for this specific scenario.
+
+
+### Solution proposed
+
+The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers needs to create a simple system for them, to make their job as lesss stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. 
+
+### Success Criteria
+
+1. Earth can send a message in morse code
+2. Moon can successfully receive the message of morse code
+3. Moon can successfully send the message with binary 
+4. Mars can receive the message of binary 
+5. The message the astronauts process are all in English (regardless of which station they are in)
+6. The message is successfully converted in binary or morse depending which station the message is delivered to 
+7. The astronauts can operate the program using only two buttons, and a screen output
+
+
 
 Design
-======
+----
 
 Development
-========
+-----
 
 ### 1.Traffic Light Program**
 
 This is the virtual circuit of the program:
 
+![TrafficLightProgram](trafficLight.png)
 
 ```sh 
 // assigning integer for each leds (same number as the arduino input)
@@ -533,7 +580,7 @@ Evaluation
 
 
 Resources
-======
+------
 
 [1] IGCSE Computer Science, "Chapter 3-Logic gates and Logic Circuits", https://avyscomputerscienceblog.wordpress.com/chapter-3/, 2019/11/27
 
