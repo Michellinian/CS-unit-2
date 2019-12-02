@@ -541,6 +541,10 @@ This should essentially perform the same thing with the previous code, with long
 ### Development of the digital number led program 
 
 For this program we needed to create this using the concept of binary and binary gates:
+![DigitalNum](digitalNum.jpg)
+
+Step 1: Create a diagram of the leds and decide how many buttons we need 
+![fig1](Drawing1.jpg)
 
 
 Evaluation 
