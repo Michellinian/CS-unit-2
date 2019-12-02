@@ -545,6 +545,22 @@ For this program we needed to create this using the concept of binary and binary
 
 Step 1: Create a diagram of the leds and decide how many buttons we need 
 ![fig1](Drawing1.jpg)
+**Fig.1**
+
+This figure 1 shows the diagram of how the digital numbers are structured. There are 7 leds, and using those leds, it should represent 0~9, which is 10 numbers. The mathematical operation shows that 10 is bigger than 2 to the power of 3 but smaller than 2 to the power of 4, indicating that we need 4 buttons which can represent each digit in binary, since we need 4 digits to represent 10 numbers in binary. 
+
+Step 2: Create a virtual circuit in tinkercad.com
+![fig2](digitalNumber.png)
+**Fig.2**
+
+Figure 2 shows the intial circuit that I created. There are four buttons each associated with one resistor. Also there are many leds in the right. When talking a closer look at the leds, you may see how the 2-3 leds are connected together. The horizontally alligned leds are 3 in 1, and vertical ones are 2 in 1. I did this to make the result easier to see, so we can observe what is working and not.
+
+Step 3: Draw a table for the buttons
+![fig3](Table.jpg)
+**Fig.3**
+
+In figure 3, 0 represents off, and 1 is on. Depending on which number to show on the leds, the buttons that needs to be pushed will change. This table shows that for example, to show 6 with the leds you need to turn on buttons B and C. Also for the leds, the led f is the only one that is turned off. Like this, in the table there is the information, for all of the numbers.
+
 
 
 Evaluation 
