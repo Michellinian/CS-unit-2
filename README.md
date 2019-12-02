@@ -46,15 +46,12 @@ This is the table of the binary numbers from 0 to 16. From this table we observe
 ![BinaryGate](binaryGates.png)
 
 ### Usability
-
 According to Interaction Design Foundation, usability refers to the ease of access or use of a product or a website. Furthermore the official definition by ISO 9241-11 is “the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.”
 
 ### Discoverability 
-
 According to Techopedia, it "refers to users' ability to find key information, applications or services". It allows users to locate some problems, and find new needs, so that they can achieve those needs. 
 
 ### Feedback 
-
 According to ComputerScienceWiki, feedback occurs "when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop". 
 
 Planning
@@ -87,20 +84,26 @@ In short there are 3 stations in different planets (and moon), and they all have
 
 Following these requirements we need to create an appropriate program for this specific scenario.
 
+### Who is the client?
+
+The clients are the people who are working in Earth, and the astronauts who are working in Moon and Mars. They have many works to do and one of them is "communication". Although our clients have too many works, so we want to make at least the commnication part of their work, as simple as possible. Also especially for the astronauts, they have stayed in space for a long time, that they cannot use their hand as nimble as they used to in Earth. 
+
 
 ### Solution proposed
 
-The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers needs to create a simple system for them, to make their job as lesss stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. 
+The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers needs to create a simple system for them, to make their job as lesss stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. In this way they don't have to so much work, but only use 2 buttons to accomplish the process from receiving a message, typing in a message, and then sending the message to the designated location.
 
 ### Success Criteria
 
-1. Earth can send a message in morse code
-2. Moon can successfully receive the message of morse code
-3. Moon can successfully send the message with binary 
-4. Mars can receive the message of binary 
-5. The message the astronauts process are all in English (regardless of which station they are in)
-6. The message is successfully converted in binary or morse depending which station the message is delivered to 
-7. The astronauts can operate the program using only two buttons, and a screen output
+1. The display shows every possible character the user can type in (A~Z, 0~9, space)
+2. The letter blinks to indicate which letter is selected
+3. The cursor is automatically moved
+4. The user can select a character
+5. The user can delete a character
+6. The user can send the message to the designated location 
+7. The other station can receive the message 
+8. Earth to Moon: English -> Morse -> English (morse and english can be translated to each other)
+9. Moon to Mars: English -> Binary -> English (binary and english can be translated to each other)
 
 
 
@@ -110,7 +113,7 @@ Design
 Development
 -----
 
-### 1.Traffic Light Program**
+### 1.Traffic Light Program
 
 This is the virtual circuit of the program:
 
@@ -535,16 +538,9 @@ void loop() {
 This should essentially perform the same thing with the previous code, with long for loops. In conclusion, by using binary gates, it allows us to make the code more simple and line efficient. 
 
 
+### Development of the digital number led program 
 
-
-
-
-
-
-
-
-
-
+For this program we needed to create this using the concept of binary and binary gates:
 
 
 Evaluation 
