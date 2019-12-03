@@ -593,17 +593,17 @@ int ledG = 1;
 
 void setup()
 {
-  pinMode(butA, OUTPUT);
-  pinMode(butB, OUTPUT);
-  pinMode(butC, OUTPUT);
-  pinMode(butD, OUTPUT);
-  pinMode(ledA, INPUT);
-  pinMode(ledB, INPUT);
-  pinMode(ledC, INPUT);
-  pinMode(ledD, INPUT);
-  pinMode(ledE, INPUT);
-  pinMode(ledF, INPUT);
-  pinMode(ledG, INPUT);
+  pinMode(butA, INPUT);
+  pinMode(butB, INPUT);
+  pinMode(butC, INPUT);
+  pinMode(butD, INPUT);
+  pinMode(ledA, OUTPUT);
+  pinMode(ledB, OUTPUT);
+  pinMode(ledC, OUTPUT);
+  pinMode(ledD, OUTPUT);
+  pinMode(ledE, OUTPUT);
+  pinMode(ledF, OUTPUT);
+  pinMode(ledG, OUTPUT);
 }
 
 void loop()
