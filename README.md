@@ -97,6 +97,7 @@ The clients are the people who are working in Earth, and the astronauts who are 
 
 The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers needs to create a simple system for them, to make their job as lesss stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. In this way they don't have to so much work, but only use 2 buttons to accomplish the process from receiving a message, typing in a message, and then sending the message to the designated location.
 
+
 ### Success Criteria
 
 1. The display shows every possible character the user can type in (A~Z, 0~9, space)
@@ -114,8 +115,148 @@ The user of this program is the astronauts who are working in the outerspace. Th
 Design
 ----
 
+**System Diagram 1**
+![SysDig1](engInput.jpg)
+This system diagram is for the english input system that we have to develop, as written in the [development](#development) section. In this system, it displays the possible characters for the users to type in, and then the selection of the letter automatiaclly moves. The alphabets are dispayed in the order of "most used", so that the user can easily recognize where the letters they want to use are. It requires several actions, including selecting the letter, deleting them, and sending the message. The input of this whole system would be the 2 buttons, to keep the operation method as easy as possible, and the output would be the lcd screen in this case, since we are using arduino kit to create the circuit.
+
+
 Development
 -----
+
+### 0. Revisiting For Loop functions 
+
+This section is the introduction task to arduino. We did a for loop program when learning bash in the previous unit, and in this task, to familiarize with the new programming language (i.e. syntax), we did an introductory course, which was to recreate the for loop task that we did in bash, in arduino. We created the exact same function but using a different programming language. The tasks were: 
+
+⓪ Create a program that prints 1000 times a greeting from your language. E.g: Hola, Hola, Hola,...
+① Create a program that prints the years from 1000 to 2019 with the word year attached. E.g: Year 1000, Year 1001,...
+② Create a program that prints all the odd numbers from 1001 to 1 (reversed).
+③ Create a program that prints the addition of all the odd numbers, and all the even numbers from 1 to 1000.
+④ Create a program that prints 100 factors of the number 7. E.g. 7, 14, 21, ...
+⑤ Create a program that prints 1000 numbers in the sequence 012345601234560...
+⑥ Create a program that prints the ordinal numbers from 1st to 100th, with the proper ending (st, nd, th). E.g: 1st, 2nd, 3rd, ...
+
+By using tinkercad, which is an online software, where you can use it to write the code and run it in a virtual circuit to check if the code is meeting its expectations. These are codes that I came up with:
+
+```sh 
+#Program 0: prints out 1000 hellos
+void setup()
+{
+  Serial.begin(9600);
+  for (int count=0; count<1000; count++) {
+    Serial.println("Hello");
+  }
+}
+
+#Program 1: prints out years from 1000 to 2019  
+void setup()
+{
+  Serial.begin(9600);
+  for (int count=1000; count<=2019; count++) {
+    Serial.print ("Year ");
+    Serial.println (count);
+  }
+}
+
+#Program 2: counts down the odd numbers form 1001 to 1
+void setup()
+{
+  Serial.begin(9600);
+  for (int count=1001; count>=1; count=count-2)
+  {
+    Serial.println (count);
+  }
+}
+ 
+#Program 3: Calculate the sum of each, odd and even numbers from 1 to 100
+void setup()
+{
+  Serial.begin(9600);
+  float odd = 0;
+  float even = 0;
+  
+  for (int a=0; a<=1000; a+=2)
+  {
+    even+=a;
+  }
+  
+  for (int b=1; b<1000; b+=2)
+  {
+    odd+=b;
+  }
+  
+  Serial.println(even);
+  Serial.println(odd);
+}
+
+
+#Program 4: Prints 100 factors of 7
+void setup()
+{
+  Serial.begin(9600);
+  int num = 7;
+  for (int count=1; count<100; count++ ) 
+  {
+    num+=7;
+    Serial.println(num);
+  }
+}
+  
+
+#Program 5: Prints out sequence 01234560123.. for 1000 times
+void setup()
+{
+  Serial.begin(9600);
+  
+  int num = -1;
+  for (int count=1; count<1000; count++) 
+  {
+    num++;
+    Serial.println(num);
+    if (num==6)
+    {
+      num = -1;
+    }
+  }
+}
+
+#Program 6: Count numbers using st, nd, rd, th... from 1st to 1000th 
+void setup()
+{
+  Serial.begin(9600);
+  for (int num=1; num<=100; num++)
+  {
+    if (num%10==1 && num!=11)
+    {
+      Serial.print(num);
+      Serial.println ("st");
+    }
+    else if (num%10==2 && num!=12)
+    {
+      Serial.print(num);
+      Serial.println ("nd");
+    }
+    else if (num%10==3 && num!=13)
+    {
+      Serial.print(num);
+      Serial.println ("rd");
+    }
+    else 
+    {
+      Serial.print(num);
+      Serial.println ("th");
+    }
+  }
+}
+```
+I only copied the setup() function of the program, because the rest of the code is exactly the same in every program. I could've also put these codes in the loop() function, although I did't want the code to execute infinite time, and instead I needed the code to executed only once. This is why I wrote it in the setup function. 
+
+Comparing with the bash program it is very similar. You can tell that the two codes commands the computer to do the exact same thing. Although there are some difference in the syntaxes. 
+
+First of all in arduino `Serial.begin(9600)`, is required in the beginning to execute the code. If this is not included in the code, the code itself would still be executed, although the result would not be printed on the console. 
+
+Also the command for printing things is different between bash and arduino. In bash it is `echo \(message)`, although in arduino it is `Serial.println(\(message))`. The command `println`, means print the message and then go to a new line. Thus, without the "ln", this would just print out message in one line, without going down to a new line. 
+
+Furthermore, another difference is that, when declaring a variable we always need to indicate what type of variable is it (i.e. whether if it's an int, string, etc.). Without indicating the the variable type, the computer would get confused, and would return an error.
 
 ### 1.Traffic Light Program
 
@@ -156,6 +297,8 @@ void blinkColor(int t, int color) {
   delay(t);
 }
 ```
+
+
 
 This code simply turns on the red led first, and then after 1 second, it turns on yellow light, and turn off the red, then after another second, does the same process but with green color. By calling out the blinkColor in the loop function, it runs infinitely until we stop the simulation. By using parameters in the blinkColor function, we can set different arguments in the same fucntion, in other words, reuse the same function but for another purpose. HIGH, means turn on, and LOW means turn off in arduino, and this appears a lot so it is better if we remember this.
 
@@ -667,8 +810,37 @@ For the setup, buttons should be the inputs and the leds must be the outputs. Th
  Then I carried out the second test to see the circuit works, and this is the result:
  ![Test2](test2.png)
  
+ The issue of not being able to see the change in the leds were fixed, although the code was not correct. When none of the buttons are pushed, the leds should show the shape of 0. Clearly there is malfunction in the code, probably in the equation part, but this is another issue to tackle.
  
+ 
+### Martian Decoder Step 1: Creating Engligh input
 
+After doing all the previous tasks in arduino, and learning about the programming language itself, as well as the concept of binary code, binary gates, and other additional things, we are now ready to start developing the actual martion decoder program. The first step is create an english input system for the clients, since they will be typing the messages in english and sending them to other locations. To mention the requirements for this english input, they are:
+
+1. There should be 37 characters to total, that the user can type in (alphabets x26, 0-9 x10, and space x1; 26 + 10 + 1 = 37)
+2. The operation should be able with 2 buttons
+3. Clients should be able to send the message to their preferred location
+4. Clients should be able to delete their mistakes
+
+By checking on these criterias, we can see how successful our english input system is.
+
+Step 1: Ideating how the input system would work
+Step 2: Select the option, that best fits the needs of our clients
+Step 3: Create the actual program by coding 
+
+**Step 1: Ideation**
+Ideas:
+1. When pushing one button the character changes one by one. When reaching last character, goes back to the first character. Then by pushing the other button, they select the letter. 
+2. Displays all possible characters on the display. Then go right by pushing the first button. When reaching the last character, goes back to the first one. Push the other button to select. Push the two buttons simultaneously to send the message.
+3. Same as 2, but instead the cursor moves automatically. Select the letter by one button. Also add "SEND", and "DEL", on the diplay. Then they can send and delete the messages.
+
+There are so many more ideas that there is too much to mention all of them. These ideas would work if we tweek a little but, although we need to narrow it down to the best idea, that might be most useful to the client.
+
+**Step 2: Class idea**
+The class idea is the system diagram 1 in the [planning](#planning) section, along with a brief explanation of how it functions.
+
+**Step 3: Coding**
+(In progress)
 
 
 Evaluation 
