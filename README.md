@@ -119,14 +119,16 @@ Design
 ![SysDig1](engInput.jpg)
 
 **Diagram 1**
+
 This diagram 1 is for the english input system that we have to develop, as written in the [development](#development) section. In this system, it displays the possible characters for the users to type in, and then the selection of the letter automatiaclly moves. The alphabets are dispayed in the order of "most used", so that the user can easily recognize where the letters they want to use are. It requires several actions, including selecting the letter, deleting them, and sending the message. The input of this whole system would be the 2 buttons, to keep the operation method as easy as possible, and the output would be the lcd screen in this case, since we are using arduino kit to create the circuit.
 
-**Flow Diagram**
+
 ![EngInputFlow1](engInputFlow1.jpg)
 ![EngInputFlow2](engInputFlow2.jpg)
 
 
 **Diagram 2**
+
 This flow chart indicates the code of the english input system. The code is, according to the flow diagram, seperated into 4 functions, along with the initial variables settings in the beginning. One flaw of the program is that the function orders are different. Meaning that the execution order of the function should be different. I think the setup() and loop() should go after the other two functions, since they are the ones, who are actually running the code. One problem was that, this was the first time drawing a flow chart of a code including functions, so I did not know the correct way of doing that. I drew a red line next to the diagram to indicate that these line of codes belong to this function. 
 
 
