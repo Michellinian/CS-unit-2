@@ -593,17 +593,17 @@ int ledG = 1;
 
 void setup()
 {
-  pinMode(butA, INPUT);
-  pinMode(butB, INPUT);
-  pinMode(butC, INPUT);
-  pinMode(butD, INPUT);
-  pinMode(ledA, OUTPUT);
-  pinMode(ledB, OUTPUT);
-  pinMode(ledC, OUTPUT);
-  pinMode(ledD, OUTPUT);
-  pinMode(ledE, OUTPUT);
-  pinMode(ledF, OUTPUT);
-  pinMode(ledG, OUTPUT);
+  pinMode(butA, OUTPUT);
+  pinMode(butB, OUTPUT);
+  pinMode(butC, OUTPUT);
+  pinMode(butD, OUTPUT);
+  pinMode(ledA, INPUT);
+  pinMode(ledB, INPUT);
+  pinMode(ledC, INPUT);
+  pinMode(ledD, INPUT);
+  pinMode(ledE, INPUT);
+  pinMode(ledF, INPUT);
+  pinMode(ledG, INPUT);
 }
 
 void loop()
@@ -633,8 +633,41 @@ void loop()
  This is the final product, and I checked on the simulator to see if shows the numbers in the way I expected.
  ![Test1](test1.png)
  **Fig6**
- Figure 6 shows the issue of the prototype. The problem with this circuit was that the fact that there were two to three leds connected with each other, which made the light dimmer, so the outcome was hard to observe. Instead of using several leds, I changed the circuits and used only one led per input, to make the result more obvious.
+ Figure 6 shows the issue of the prototype. One problem was that the leds were very dark although they were on. The reason I thought wsa because of how several leds were connected together. This is why I moderated the circuit so that there is only one led connected to each input. Although this didn't change the issue. The led was still dark. This meant that there was another reason that was contributing to the dimness of the led. The real reason was in the code. 
+ ```sh 
+ void setup()
+{
+  pinMode(butA, OUTPUT);
+  pinMode(butB, OUTPUT);
+  pinMode(butC, OUTPUT);
+  pinMode(butD, OUTPUT);
+  pinMode(ledA, INPUT);
+  pinMode(ledB, INPUT);
+  pinMode(ledC, INPUT);
+  pinMode(ledD, INPUT);
+  pinMode(ledE, INPUT);
+  pinMode(ledF, INPUT);
+  pinMode(ledG, INPUT);
+}
+```
+For the setup, buttons should be the inputs and the leds must be the outputs. Thus the correct code should instead be the following: 
+```sh 
+  pinMode(butA, INPUT);
+  pinMode(butB, INPUT);
+  pinMode(butC, INPUT);
+  pinMode(butD, INPUT);
+  pinMode(ledA, OUTPUT);
+  pinMode(ledB, OUTPUT);
+  pinMode(ledC, OUTPUT);
+  pinMode(ledD, OUTPUT);
+  pinMode(ledE, OUTPUT);
+  pinMode(ledF, OUTPUT);
+  pinMode(ledG, OUTPUT);
+ ```
+ Then I carried out the second test to see the circuit works, and this is the result:
  ![Test2](test2.png)
+ 
+ 
 
 
 
