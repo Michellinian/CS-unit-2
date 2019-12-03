@@ -825,11 +825,15 @@ After doing all the previous tasks in arduino, and learning about the programmin
 By checking on these criterias, we can see how successful our english input system is.
 
 Step 1: Ideating how the input system would work
+
 Step 2: Select the option, that best fits the needs of our clients
+
 Step 3: Create the actual program by coding 
 
 **Step 1: Ideation**
+
 Ideas:
+
 1. When pushing one button the character changes one by one. When reaching last character, goes back to the first character. Then by pushing the other button, they select the letter. 
 2. Displays all possible characters on the display. Then go right by pushing the first button. When reaching the last character, goes back to the first one. Push the other button to select. Push the two buttons simultaneously to send the message.
 3. Same as 2, but instead the cursor moves automatically. Select the letter by one button. Also add "SEND", and "DEL", on the diplay. Then they can send and delete the messages.
@@ -837,9 +841,11 @@ Ideas:
 There are so many more ideas that there is too much to mention all of them. These ideas would work if we tweek a little but, although we need to narrow it down to the best idea, that might be most useful to the client.
 
 **Step 2: Class idea**
+
 The class idea is the system diagram 1 in the [planning](#planning) section, along with a brief explanation of how it functions.
 
 **Step 3: Coding**
+
 (In progress)
 
 
@@ -873,6 +879,7 @@ Evaluation
 4. Can use functions 
 
 **Cons**
+
 1. Sometimes hard to spot errors
 2. Too many symbols (), {}, etc. 
 3. Slow execution speed (simulation speed is way slower than bash)
