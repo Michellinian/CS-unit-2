@@ -44,15 +44,19 @@ This is the table of the binary numbers from 0 to 16. From this table we observe
 ### Binary Gates
 **What are binary gates?**
 ![BinaryGate](binaryGates.png)
+**Image taken from IGCSE Computer Science [1]**
 
 ### Usability
-According to Interaction Design Foundation, usability refers to the ease of access or use of a product or a website. Furthermore the official definition by ISO 9241-11 is “the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.”
+According to Interaction Design Foundation [2], usability refers to the ease of access or use of a product or a website. Furthermore the official definition by ISO 9241-11 is “the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.”
 
 ### Discoverability 
-According to Techopedia, it "refers to users' ability to find key information, applications or services". It allows users to locate some problems, and find new needs, so that they can achieve those needs. 
+According to Techopedia [3], it "refers to users' ability to find key information, applications or services". It allows users to locate some problems, and find new needs, so that they can achieve those needs. Also according Don Norman in the video "It's not you. Bad doors are everywhere" [5] he explains about discoverability as, "When I look at something, I should be able to discover what operations I can do."
 
 ### Feedback 
-According to ComputerScienceWiki, feedback occurs "when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop". 
+According to ComputerScienceWiki [4], feedback occurs "when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop". 
+
+### Human Centered Design (HCD)
+According to the video by Joe Posner and Roman Mars [5], human centered design is the cycle of observation, ideation, prototyping and testing, then going back to observation, and starting the whole cycle again. 
 
 Planning
 ------
@@ -550,7 +554,7 @@ Step 1: Create a diagram of the leds and decide how many buttons we need
 This figure 1 shows the diagram of how the digital numbers are structured. There are 7 leds, and using those leds, it should represent 0~9, which is 10 numbers. The mathematical operation shows that 10 is bigger than 2 to the power of 3 but smaller than 2 to the power of 4, indicating that we need 4 buttons which can represent each digit in binary, since we need 4 digits to represent 10 numbers in binary. 
 
 Step 2: Create a virtual circuit in tinkercad.com
-![fig2](digitalNumber.png)
+![fig2](DigitalNumber.png)
 **Fig.2**
 
 Figure 2 shows the intial circuit that I created. There are four buttons each associated with one resistor. Also there are many leds in the right. When talking a closer look at the leds, you may see how the 2-3 leds are connected together. The horizontally alligned leds are 3 in 1, and vertical ones are 2 in 1. I did this to make the result easier to see, so we can observe what is working and not.
@@ -560,6 +564,77 @@ Step 3: Draw a table for the buttons
 **Fig.3**
 
 In figure 3, 0 represents off, and 1 is on. Depending on which number to show on the leds, the buttons that needs to be pushed will change. This table shows that for example, to show 6 with the leds you need to turn on buttons B and C. Also for the leds, the led f is the only one that is turned off. Like this, in the table there is the information, for all of the numbers.
+
+Step 4: Draw a table for each leds 
+![fig4](ledTable.jpg)
+**Fig.4**
+
+In this figure, I tried to create a table for each leds, so that I can see the pattern of when and when not the leds are on. By doing this, we can move on to the next step, which makes are code line efficient, and therefore easier to read.
+
+Step 5: Write down the eqaution (using binary gates) for every led
+![fig5](ledEq.jpg)
+**Fig.5**
+
+Figure 5 shows the same drawing of the table, but I've done here is I showed the process of coming up with equations using binary gates. By using binary gates, as also mentioned above, it makes the code much more concise, and easier to see. Thus, for example, when there is an error in the program, it would be easier to locate the mistakes in the code, since there are less possible areas that error can occur. You don't need to scroll down the code, because the code is short enough to locate the error with one glance.
+
+And finally this is the code for the entire program that I came up with:
+```sh
+int butA = 13;
+int butB = 12;
+int butC = 11;
+int butD = 10;
+int ledA = 7;
+int ledB = 6;
+int ledC = 5;
+int ledD = 4;
+int ledE = 3;
+int ledF = 2;
+int ledG = 1;
+
+void setup()
+{
+  pinMode(butA, OUTPUT);
+  pinMode(butB, OUTPUT);
+  pinMode(butC, OUTPUT);
+  pinMode(butD, OUTPUT);
+  pinMode(ledA, INPUT);
+  pinMode(ledB, INPUT);
+  pinMode(ledC, INPUT);
+  pinMode(ledD, INPUT);
+  pinMode(ledE, INPUT);
+  pinMode(ledF, INPUT);
+  pinMode(ledG, INPUT);
+}
+
+void loop()
+{
+  bool a = digitalRead(butA);
+  bool b = digitalRead(butB);
+  bool c = digitalRead(butC);
+  bool d = digitalRead(butD);
+  
+  bool eqA = (!a & !b & !c & !d) | (!a & b & !c & d) | (!a & c) | (a & !b & !c);
+  bool eqB = (!a & c & d) | (!a & b) | (a & !b & !c);
+  bool eqC = (!a & !b & !c & !d) | (a & !b & !c & !d) | (!a & !b & !c);
+  bool eqD = (!a & !b & !c & !d) | (!a & b & !c & !d) | (!a & !b & c) | (!a & c & !d) | (a & !b);
+  bool eqE = (!a & !c) | (!a & d) | (!a & b & c) | (a & !b & !c);
+  bool eqF = (!a & !b) | (!a & !c & !d) | (!a & c & d) | (a & !b & !c);
+  bool eqG = (!a & b & !c) | (!a & !b & c) | (!a & c & !d) | (a & !b & !c);
+  
+  digitalWrite(ledA, eqA);
+  digitalWrite(ledB, eqB);
+  digitalWrite(ledC, eqC);
+  digitalWrite(ledD, eqD);
+  digitalWrite(ledE, eqE);
+  digitalWrite(ledF, eqF);
+  digitalWrite(ledG, eqG);
+}
+```
+ This is the final product, and I checked on the simulator to see if shows the numbers in the way I expected.
+ ![Test1](test1.png)
+ **Fig6**
+ Figure 6 shows the issue of the prototype. The problem with this circuit was that the fact that there were two to three leds connected with each other, which made the light dimmer, so the outcome was hard to observe. Instead of using several leds, I changed the circuits and used only one led per input, to make the result more obvious.
+ ![Test2](test2.png)
 
 
 
@@ -609,6 +684,8 @@ Resources
 [3] Techopedia, "Discoverability", https://www.techopedia.com/definition/28140/discoverability-design, 2019/11/28
 
 [4] ComputerScienceWiki, "Feedback", "https://computersciencewiki.org/index.php/Feedback", 2019/11/28
+
+[5] Joe Posner, Roman Mars, "It's not you. Bad doors are everywhere", "https://www.youtube.com/watch?v=yY96hTb8WgI", 2019/12/03
 
 
 
