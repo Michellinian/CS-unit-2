@@ -823,12 +823,11 @@ After doing all the previous tasks in arduino, and learning about the programmin
 4. Clients should be able to delete their mistakes
 
 By checking on these criterias, we can see how successful our english input system is.
+Here are general stepsi in creating the system:
 
-Step 1: Ideating how the input system would work
-
-Step 2: Select the option, that best fits the needs of our clients
-
-Step 3: Create the actual program by coding 
+1. Ideating how the input system would work
+2. Select the option, that best fits the needs of our clients
+3. Create the actual program by coding 
 
 **Step 1: Ideation**
 
