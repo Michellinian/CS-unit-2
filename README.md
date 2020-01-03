@@ -931,8 +931,37 @@ void selected(){
   }
 }
 ``` 
-This is the entire code of the enlgish input system. In this code there are different parts. First is the changeLetter() function. In this function, it allows the character that is appearing on the lcd screen to change when the user presses the button. Meaning that when it is A and when the button is pressed it becomes B, and so on. And when it reaches the last character it goes back to A and start the restart the entire process. Selected() function, allows the user to delete and send the message. These functions are called in the setup function using interrupts, whc¥ich is necessary when calling one or more functions. Interrupts allows different code to be executed in the middle of the execution of other codes. This was successful and it performed exactly how we intended to. Evaluationis done further in the evalution section below. 
+This is the entire code of the enlgish input system. In this code there are different parts. First is the changeLetter() function. In this function, it allows the character that is appearing on the lcd screen to change when the user presses the button. Meaning that when it is A and when the button is pressed it becomes B, and so on. And when it reaches the last character it goes back to A and start the restart the entire process. Selected() function, allows the user to delete and send the message. These functions are called in the setup function using interrupts, whc¥ich is necessary when calling one or more functions. Interrupts allows different code to be executed in the middle of the execution of other codes. This was successful and it performed exactly how we intended to. Evaluations done further in the evaluation section below. 
 
+### Martian Decoder Step 2: Development of translation program 
+
+The next step is to create a program that accomplishes the translation part of the Martian decoder program. From the Earth station only morse can be emitted, therefore we need to develop a program that translates the english message which the user want to send, into morse so that it can be sent to other stations. There are many things to be considerd although what needs to be considered the most the usability. How should the morse code be emmited, so that the receivers can read the message easily? There was the option of using 1 or 2 light bulbs. After discussing with the moon station, it all came down to which was easier for the reader to understand, using one light bulb and lighting up the bulb time based, or using two light bulbs and representing dots and dashes with different numbers of light bulbs? 
+
+**Pros and cons of Time-Based Morse system**
+
+| Pros | Cons |
+| --- | --- |
+| Appears to be easier to code | Maybe diffcult to differentiate with time |
+| Only uses one light | Need to wait to understand what is being sent |
+| More energy efficient | Slow to send the messages |
+
+**Pros and cons of using two lights**
+
+| Pros | Cons |
+| --- | --- |
+| Easier to read than time based | Might be more complicated |
+| About watching | Hard to differentiate between spaces |
+| Immediately know whats happening | May need to educate the users |
+
+After considering these factors, we decided that using two lights might be a better way of sending morse as well as receiving the message. Once the user gets used to this, it would be time efficient, and also easier to read, since there will be no confusion between dots and dashes, which is one flaw of the time based system. Furthermore, it would be a big of a deal to switch the code to the other option when things do not work out as expected, because there is a lot in common between the concept of the 2 scripts. 
+
+**Basic code**
+
+Before going into the development of the translation program using two lights, we developed the fundamental steps that can be used for both codes:
+
+1. Define "dot" and "dash", as well as different type of spaces (within a letter, between letters words) in seperate functios to prevent repetition of the same code
+2. Blink light rapdily 5 times to indicate the start of the message 
+3. Use switch case statements which looks at the letter and then translates 
  
 
 
