@@ -38,18 +38,28 @@ Todays task: "Enter English text then show in the serial monitor, and then use t
 
 This class was also dedicated to creating the incomplete code from last class. But before we did that, first we practiced some possible IB questions. The first question was about some inputs, that make the user easier to access, and the second question was about converting binary into hexadecimal. Both questions, at first I did not understand anything, but after listening to the explanation, I completely understood how to answer the questions. And then after doing this, we went back to developing our code, although at the end of the class, we came up with a "class" idea, about how the input could be. Our final idea was, displaying all the characters, and making the users select by puching the button, although we decided to put the most used letters in front and the least at the very end, so that we can give the users an easier chance the type in the words. Then we worked out the first bit of the code together, and then started developing the rest of the code on our own. 
 
-## Class 10 (2019/12/02)
+### Class 10 (2019/12/02)
 
 First thing in class we asked questions about how the input system is going to work. We has questions such as "how to display the characters on the LCD screen", "Switch between the english and binary / morse", and so on. After going through these questions, we learned a little bit about the computer architecture. In a computer there is a CPU, and different types of memories, which was difficult to understand for me. I need to learn more about this during the winter break. Then we moved on to the real task of developing the input system. We were given the English input code from the teacher and after seperating into our own groups, we had to create the cicuit, as well as the flow diagram of the input system code. We made 2 different circuits, just in case one of them didn't work so we had a backup. Also the English input code was somewhat understandable but still hard, so I couldn't finish the flow chart during class time. 
 
-## Class 11 (2019/12/04)
+### Class 11 (2019/12/04)
 
 Today was the test day. We had a paper test and a practical test where we had to create a certain program. The practical test was very hard, and I couldn't manage to make it function well so I added comments to at least show how I want the program to look like. 
 
-## Class 12 (2019/12/10)
+### Class 12 (2019/12/10)
 
 Last class was cancelled due to the human rights day. During this class we continued developing our Enlgish input system. After finishing this step, we moved on to translating the message into either morse or binary. I worked on the translation between english and morse. We were intoruduced to a new command "switch case" statement. It works very similarly to if statements. By using this we decided to assign every letter with the corresponding morse code. When the user sends the message, it detects what characters are in the message, as well as how many characters are in the message, and then it performs the switch case command. Despite of if it actually works or not, I think our process was quite successful, We still haven't tried our code. Also we started thinking about how the user can recieve the morse code. We thought about using one or two light bulbs. When one, we used the usual morse code, meaning time based, on and off of the light bulbs to receive the message. Our second option was to use two light bulbs, and when dot we only use one light, and when dash we use two light bulbs and so on. We had a little discussion about that, although we didn't come up with a solid idea during this class. 
 
-## Class (2019/12/11)
+### Class 13 (2019/12/11)
 
 For our final class in the semester, we developed the translation program. We decided to list all the pros and cons of each idea we had for translating english to morse. Then finally we decided to develop the program using the time based one. Because the code itself wouldn't be that much of the difference, we decided to go with that first, and maybe change it afterwards. It would not be that hard to change the program. We didin't finish developing the code because of the time, although we know where we are going with this, which I think is a very good ending of the second semester. 
+
+### Class 14 (2020/01/06)
+
+In the first class of 2020, we started off with learning about the normal C language iinstead of the arduino C. We created two programs, both counting program. The oucome had to be something like this: 
+1                 1
+2 2               2 3
+3 3 3             4 5 6
+4 4 4 4           7 8 9 10
+5 5 5 5 5         11 12 13 14 15 
+For the first one we went through together, and then we did the second program individually using the first code as reference. Then after that we started learning about protocols. Since we need to transmit the messages to other stations, we need to use a certain protocol. We started off with learning what protocols are, and the different types and their usages. 
