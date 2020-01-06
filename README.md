@@ -962,6 +962,11 @@ Before going into the development of the translation program using two lights, w
 1. Define "dot" and "dash", as well as different type of spaces (within a letter, between letters words) in seperate functios to prevent repetition of the same code
 2. Blink light rapdily 5 times to indicate the start of the message 
 3. Use switch case statements which looks at the letter and then translates 
+
+
+### Protocols 
+
+Protocols are the set of rules computers follow when communicating across a network. Without them, no information can be transmitted as computers don't knowhow to interpret the signals coming through the network. 
  
 
 
