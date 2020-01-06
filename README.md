@@ -966,7 +966,8 @@ Before going into the development of the translation program using two lights, w
 
 ### Protocols 
 
-Protocols are the set of rules computers follow when communicating across a network. Without them, no information can be transmitted as computers don't knowhow to interpret the signals coming through the network. 
+Protocols are the set of rules computers follow when communicating across a network. Without them, no information can be transmitted as computers don't know how to interpret the signals coming through the network. These are the different types of protocols. 
+
  
 
 
