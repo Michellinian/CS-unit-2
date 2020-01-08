@@ -63,3 +63,9 @@ In the first class of 2020, we started off with learning about the normal C lang
 4 4 4 4           7 8 9 10
 5 5 5 5 5         11 12 13 14 15 
 For the first one we went through together, and then we did the second program individually using the first code as reference. Then after that we started learning about protocols. Since we need to transmit the messages to other stations, we need to use a certain protocol. We started off with learning what protocols are, and the different types and their usages. 
+
+### Class 15 (2020/01/08)
+
+Today's class was mainly about coding. We got a lot of exercises of coding with standard c. It was about checking the syntax, as well as checking our basic programming skill. We had the whole lesson to code the 10 exercises. It was a very good practice, and I managed to program every exercise without any help, except for one tiny help relating to queation 2.
+
+
