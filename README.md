@@ -970,15 +970,14 @@ Protocols are the set of rules computers follow when communicating across a netw
 
 | Protocol's name | Created by | Used in |
 | --- | --- | --- |
-| IP | Vint Cerf, Robert E. Kahn | Interface, identification + address in the network |
-| FTP | Abhay Bhusan | transferring files between client and server |
-| SSH | Tatu Yloren | Log in to a remote machine and execute commands |
-| SMTP | RFC 821 | Sending and receicing email |
+| IP (Internet Protocol) | Vint Cerf, Robert E. Kahn | Interface, identification + address in the network |
+| FTP (File Transfer Protocol) | Abhay Bhusan | transferring files between client and server |
+| SSH (Secure Shell) | Tatu Yloren | Log in to a remote machine and execute commands |
+| SMTP (Simple Mail Transfer Protocol) | RFC 821 | Sending and receicing email |
 | Telnet | UCLA | provide bidirectional interacrtive text-oriented commnication facility |
-| POP3 | Mark Crispin | retreive email from a mail server |
-| |||
-
-### 
+| POP3 (Post Office Protocol) | Mark Crispin | retreive email from a mail server |
+| HTTP (HyperText Transfer Protocol) | Tim Berners Lee | worldwide webs (foudation of hyperlinks ex. "click here") |
+| VPN (Virtual Private Network) | Gurdeep Singh-Pall | provides encrypted internet connections |
  
 
 
