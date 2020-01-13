@@ -68,4 +68,6 @@ For the first one we went through together, and then we did the second program i
 
 Today's class was mainly about coding. We got a lot of exercises of coding with standard c. It was about checking the syntax, as well as checking our basic programming skill. We had the whole lesson to code the 10 exercises. It was a very good practice, and I managed to program every exercise without any help, except for one tiny help relating to queation 2.
 
+### Class 16 (2020/01/13)
 
+We had 2 main parts in today's class. The first section was learning about the machine cycle. We watched a video about the main components of the computer, and how data transfers work within a computer. We did some examples, and eventually we created our own machine cycle that performs a certain performance. This was hard to understand, although after practicing, I got a beter understanding of how it works. Then we continued with the development of unit2. We tried testing our code, although we didn't have enough time to test it. Although the code seems to be pretty good, apart from its actual functionality which we don't know yet. Today's class was somewhat straightforward, there are no questions that I want to ask right now, although I know I would have a lot, if I understand the amchine cycle deeper.
