@@ -138,7 +138,7 @@ Development
 -----
 
 
-### Binary lights
+### Binary lights (Predevelopment)
 
 This program should light the leds in 15 different ways by using the binary numbers.
 Steps: 
@@ -217,10 +217,8 @@ if (count%4 > 1) {
 ```
 since the 1 means HIGH. The code works like this, and by representing each leds as digits A, B, C, D of binary numbers, we can light the 4 leds in 15 different ways, using the concept of binary numbers.
 
-This is the product:
-![BinaryLed](BinaryLed.mov)
 
-### Development of Weekend Task
+### Development of Weekend Task (Predevelopment)
 
 **Table 1:**
 
@@ -371,7 +369,7 @@ void loop() {
 
 In this program the code becomes very long, but essentially we are doing the same thing in table 1 and 2, but with a lnger process, since there is one more input to consider.
 
-### 4. Using Binary Gates for Weekend Task
+### 4. Using Binary Gates for Weekend Task (Predevelopment)
 **Table 1**
 
 Using the same table as before, we are going to another code that performs exactly the same thing, but with a different method. By using binary gates. This is table for the first output.
