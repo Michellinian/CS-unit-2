@@ -1,6 +1,8 @@
 Homeworks
 ========
 
+Arduino C
+------
 
 ### 0. Revisiting For Loop functions 
 
@@ -693,3 +695,217 @@ For the setup, buttons should be the inputs and the leds must be the outputs. Th
  
  The issue of not being able to see the change in the leds were fixed, although the code was not correct. When none of the buttons are pushed, the leds should show the shape of 0. Clearly there is malfunction in the code, probably in the equation part, but this is another issue to tackle.
  
+ 
+Practice with standard C
+-------
+
+### Conditional statements
+
+```sh 
+// 1. Check is the number is even or odd
+#include <stdio.h>
+
+int main(void) {
+  int userNum;
+  printf("Enter an integer below \n");
+  scanf("%d", &userNum);
+  if (userNum % 2 == 0) {
+    printf("%d is an even integer", userNum);
+  } else {
+     printf("%d is an odd integer", userNum);
+  }
+  return 0;
+}
+
+// 2. Check if the number is positive or negative
+#include <stdio.h>
+
+int main(void) {
+  int userNum; 
+  printf("Enter a number below \n");
+  scanf("%d", &userNum);
+  if (userNum < 0) {
+    printf("%d is a negative integer", userNum);
+  } else {
+    printf("%d is a positive integer", userNum);
+  }
+  return 0;
+}
+
+// 3. Check is the user is eligible for a casting a vote
+#include <stdio.h>
+
+int main(void) {
+  int userAge;
+  printf("Enter your age here: ");
+  scanf("%d", &userAge);
+  if (userAge < 20) {
+    printf("You are not eligible for casting your vote");
+  } else {
+    printf("Congratulations! You are eligible for casting your vote.");
+  }
+  return 0;
+}
+ 
+// 4. Find the greatest number among the three input
+#include <stdio.h>
+
+int main(void) {
+  int num1, num2, num3;
+  printf("Enter three different numbers below \n");
+  scanf("%d %d %d", &num1, &num2, &num3);
+  printf("1st Number = %d \n", num1);
+  printf("2nd Number = %d \n", num2);
+  printf("3rd Number = %d \n", num3);
+  if (num1 > num2 && num1 > num3) {
+    printf("The 1st number is the greatest among three"); 
+  } else if (num2 > num1 && num2 > num3) {
+    printf("The 2nd number is the greatest among three");
+  } else if (num3 > num1 && num3 > num2) {
+    printf("The 3rd number is the greatest among three");
+  }
+  return 0;
+}
+
+// 5. Check which quadrant the point exist
+#include <stdio.h>
+
+int main(void) {
+  int userX, userY;
+  printf("Enter your coordinates below \n");
+  scanf("%d %d", &userX, &userY);
+  if (userX >= 0) {
+    if (userY >= 0) {
+      printf("The coordinate point (%d, %d) lies in the First quadrant", userX, userY);
+    } else {
+      printf("The coordinate point (%d, %d) lies in the Fourth quadrant", userX, userY);
+    }
+  } else {
+    if (userY >= 0) {
+      printf("The coordinate point (%d, %d) lies in the Second quadrant", userX, userY);
+    } else {
+      printf("The coordinate point (%d, %d) lies in the Third quadrant", userX, userY);
+    }
+  }
+} 
+
+// 6. Check if the candidate is eligible for admission 
+#include <stdio.h>
+
+int main(void) {
+  int math, phy, chem, totalAll = 0, totalMathPhy = 0;
+  printf("Enter your grades in order of Math Physics Chemistry\n");
+  scanf("%d %d %d", &math, &phy, &chem);
+  totalAll = totalAll + math + phy + chem;
+  totalMathPhy = totalMathPhy + math + phy;
+  if (totalAll >= 180 || totalMathPhy >= 140) {
+    printf("The candidate is eligible for admission."); 
+  } else {
+    printf("The candidate is not eligible for admission.");
+  }
+  return 0;
+}
+
+// 7. Check the temperature and determine the weather
+#include <stdio.h>
+
+int main(void) {
+  int temp;
+  printf("Enter the temperature in celsius here: ");
+  scanf("%d", &temp);
+  if (temp < 0) {
+    printf("Its freezing weather");
+  } else if (temp < 10) {
+    printf("Its very cold weather");
+  } else if (temp < 20) {
+    printf("Its cold weather");
+  } else if (temp < 30) {
+    printf("Its normal in temperature");
+  } else if (temp < 40) {
+    printf("Its hot"); 
+  } else if (temp >= 40) {
+    printf("Its very hot");
+  }
+  return 0;
+}
+
+// 8. Check if the triangle is either equilateral, isosceles, or scalene
+#include <stdio.h>
+
+int main(void) {
+  int angle1, angle2, angle3;
+  printf("Enter the three angles of a triangle below \n");
+  scanf("%d %d %d", &angle1, &angle2, &angle3);
+  // assuming that the user typed in the valid triangle angles
+  if (angle1 == angle2 && angle2 == angle3) {
+    printf("This is an equilateral triangle");
+  } else if(angle1 != angle2 && angle1 != angle3 && angle2 != angle3) {
+    printf("This is a scalene triangle"); 
+  } else {
+    printf("This is an isosceles triangle");
+  }
+  return 0;
+}
+
+// 9. Check if the triangle can be created with the three angles
+#include <stdio.h>
+
+int main(void) {
+  int angle1, angle2, angle3;
+  int totalAng = 0;
+  printf("Enter the three angle of a triangle below \n");
+  scanf("%d %d %d", &angle1, &angle2, &angle3);
+  totalAng = totalAng + angle1 + angle2 + angle3;
+  if (totalAng == 180) {
+    printf("The triangle is valid");
+  } else {
+    printf("The triangle is not valid");
+  }
+  return 0;
+}
+
+// 10. Calculate the electricity charge of the user
+#include <stdio.h>
+
+int main(void) {
+  //defining variables
+  int id, unit;
+  float perCharge, totalCharge, subCharge, totalBill;
+  char name[15];
+
+  printf("Enter your customer id, name, and unit below \n");
+  scanf("%d %s %d", &id, name, &unit);
+
+  // determine the charge amount per unit
+  if (unit<200) {
+    perCharge = 1.20;
+  } else if (unit<400) {
+    perCharge = 1.50;
+  } else if (unit<600) {
+    perCharge = 1.80;
+  } else if (600<=unit) {
+    perCharge = 2.00;
+  }
+  // calculate that amount charges
+  totalCharge = unit * perCharge;
+  //subcharge 15% of the totalCharge when larger than 400yen
+  if (totalCharge > 400) {
+    subCharge = totalCharge * 0.15;
+  }
+  // calculating the overall bill of the electricity
+  totalBill = totalCharge + subCharge;
+
+  printf("Customer IDNO: %d \n", id);
+  printf("Customer Name: %s \n", name);
+  printf("Unit Consumed: %d \n", unit);
+  printf("Amount Charge @Rs %f per Unit: %f \n", perCharge, totalCharge);
+  printf("SubCharge Amount: %f \n", subCharge);
+  printf("Net Amount by the Customer: %f \n", totalBill);
+
+  return 0;
+}
+```
+
+**Reflection**
+Overall this was some basic coding practice, and I didn't have major difficulties to accomplish the task. 
+
