@@ -71,3 +71,7 @@ Today's class was mainly about coding. We got a lot of exercises of coding with 
 ### Class 16 (2020/01/13)
 
 We had 2 main parts in today's class. The first section was learning about the machine cycle. We watched a video about the main components of the computer, and how data transfers work within a computer. We did some examples, and eventually we created our own machine cycle that performs a certain performance. This was hard to understand, although after practicing, I got a beter understanding of how it works. Then we continued with the development of unit2. We tried testing our code, although we didn't have enough time to test it. Although the code seems to be pretty good, apart from its actual functionality which we don't know yet. Today's class was somewhat straightforward, there are no questions that I want to ask right now, although I know I would have a lot, if I understand the amchine cycle deeper.
+
+### Class 17 (2020/01/15)
+
+This period was also dedicated to developing the unit 2 program. We started testing the code for the english to morse translation. We had several tries, although it kept giving us error, so we had to remodify the code over and over. The testing still wasn't successful, although we did make some progress, and now we may have an idea of how to fix the code. We first need to organize the codes, with correct parenthethes and indentations. I think then we can clear the errors. 
