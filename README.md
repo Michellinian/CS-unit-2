@@ -226,6 +226,7 @@ void selected(){
     }
     else if(key == "SENT")
     {
+      sent();
       text="";
     }else{
       text += key;
@@ -262,9 +263,222 @@ After considering these factors, we decided that using two lights might be a bet
 
 Before going into the development of the translation program using two lights, we developed the fundamental steps that can be used for both codes:
 
-1. Define "dot" and "dash", as well as different type of spaces (within a letter, between letters words) in seperate functios 
+1. Define "dot" and "dash", as well as different type of spaces (within a letter, between letters words) in seperate functions 
 2. Blink light rapdily 5 times to indicate the start of the message 
 3. Use case switch statements (ex. case A, switch dot(), dash()...)
+
+**Prototype**
+
+```sh 
+void sent() {
+  Serial.print("begin ");
+    for (int i = 0; i  < 7; i++) { // blink light seven times to indicate beginning of message
+    digitalWrite(13, HIGH);
+    delay(300);
+    digitalWrite(13, LOW);
+    delay(300);
+}
+      
+int strLen = text.length(); // setting len to length to text
+for (int i = 0; i < strLen; i++) {  // cycling through each letter of text 
+  switch (text.charAt(i)) { // translating for i’th letter
+ 
+case 'A':
+  dot();
+  dash();
+  wait();
+  break;
+case 'B':
+  dash();
+  dot();
+  dot();
+  dot();
+  wait();
+  break;
+case 'C': 
+  dash();
+  dot();
+  dash();
+  dot();
+  wait();
+  break;
+case 'D':
+  dash();
+  dot();
+  dot();
+  wait();
+  break;
+case 'E':
+  dot();
+  wait();
+  break;
+case 'F': 
+  dot();
+  dot();
+  dash();
+  dot();
+  wait();
+  break;
+case 'G':
+  dash();
+  dash();
+  dot();
+  wait();
+  break;
+case 'H':
+  dot();
+  dot();
+  dot();
+  dot();
+  wait();
+  break;
+case 'I':
+  dot();
+  dot();
+  wait();
+  break;
+case 'J':
+  dot();
+  dash();
+  dash();
+  dash();
+  wait();
+  break;
+case 'K':
+  dash();
+  dot();
+  dash();
+  wait();
+  break;
+case 'L':
+  dot();
+  dash();
+  dot();
+  dot();
+  wait();
+  break;
+case 'M':
+  dash();
+  dash();
+  wait();
+  break;
+case 'N':
+  dash();
+  dot();
+  wait();
+  break;
+case 'O':
+  dash();
+  dash();
+  dash();
+  wait();
+  break;
+case 'P':
+  dot();
+  dash();
+  dash();
+  dot();
+  wait();
+  break;
+case 'Q':
+  dash();
+  dash();
+  dot();
+  dash();
+  wait();
+  break;
+case 'R':
+  dot();
+  dash();
+  dot();
+  wait();
+  break;
+case 'S':
+  dot();
+  dot();
+  dot();
+  wait();
+  break;
+case 'T':
+  dash();
+  wait();
+  break;
+case 'U':
+  dot();
+  dot();
+  dash();
+  wait();
+  break;
+case 'V':
+  dot();
+  dot();
+  dot();
+  dash();
+  wait();
+  break;
+case 'W':
+  dot();
+  dash();
+  dash();
+  wait();
+  break;
+case 'X':
+  dash();
+  dot();
+  dot();
+  dash();
+  wait();
+  break;
+case 'Y':
+  dash();
+  dot();
+  dash();
+  dash();
+  wait();
+  break;
+case 'Z': 
+  dash();
+  dash();
+  dot();
+  dot();
+  wait();
+  break; 
+case ' ':
+  digitalWrite(13, LOW);
+  delay(4000);
+if (i < strLen - 1) { 
+ Serial.print("done");
+  // for (int i = 0; i < 7; i++) { // blink light five times to indicate beginning of message
+ // digitalWrite(13, HIGH);
+ // delay(300);
+ // digitalWrite(13, LOW);
+ // delay(300); }
+} 
+  }}}
+  
+void dot() {  // defining the dot function as one light being ON for one second 
+Serial.print("dot ");
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+
+void dash() { // defining the dash function as the light being on for three seconds
+Serial.print("dash ");
+digitalWrite(13, HIGH);
+digitalWrite(10, HIGH);
+delay(3000);
+digitalWrite(13, LOW);
+digitalWrite(10, LOW);
+delay(1000);
+}
+
+void wait() { // defining the wait function 
+  delay(2000); // between letters is two second delay
+} 
+```
+As stated in the basic code steps, we used switch case statements to represent the alphabets. The dot and dashes are declared as a function at the bottomo of the code. To indicate the beginning and the end of the message transmission, we programmed the code for the leds to blink rapidly 7 times.
 
 ### Protocols 
 
