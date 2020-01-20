@@ -92,13 +92,18 @@ Following these requirements we need to create an appropriate program for this s
 
 The clients are the people who are working in Earth, and the astronauts who are working in Moon and Mars. They have many works to do and one of them is "communication". Although our clients have too much work such as various extraterrestrial researches,  so we want to make at least the commnication part of their work, as simple as possible. Also especially for the astronauts, they have stayed in space for a long time, that they cannot use their hand as nimble as they used to in Earth. In space their fingers usually expand, as compared to normal air pressure, therefore increasing the need for an easy input system for the users. 
 
+### Solution proposed (For Earth station)
 
-### Solution proposed
+The solution is to create a system that can be manipulated by only 2 buttons. With the 2 buttons it should be able to perform the following things: 
+1. Change the characters on the display 
+2. Select the character 
+3. Delete the character
+4. Send the message in morse
+5. Receive the message in english 
 
-The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers have the necessity to create a simple system for them, to make their job as less stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. Depending on which button the user presses, and how long they press them, it activiates different modes. In this way they don't have to do so much work, but only use 2 buttons to accomplish the process from receiving a message, typing in a message, and then sending the message to the designated location.
+All these should be able to be manipulated by just 2 buttons. In this way, although it might take time for the user to get used to the system, once they become familiar with this new system, they will be able to communicate through planets with ease and simplicity. 
 
-
-### Success Criteria
+### Success Criteria (For Earth station)
 
 1. The display shows every possible character the user can type in (A~Z, 0~9, space)
 2. The character changes one by one, when button 1 is pressed
@@ -117,12 +122,18 @@ The user of this program is the astronauts who are working in the outerspace. Th
 Design
 ----
 
+**System diagram**
+
 ![EngInputFlow1](engInputFlow1.jpg)
 ![EngInputFlow2](engInputFlow2.jpg)
 
-**Flow Diagram 1**
+**English Input System**
 
 This flow chart indicates the code of the english input system. The code is, according to the flow diagram, seperated into 4 functions, along with the initial variables settings in the beginning. One flaw of the program is that the function orders are different. Meaning that the execution order of the function should be different. I think the setup() and loop() should go after the other two functions, since they are the ones, who are actually running the code. One problem was that, this was the first time drawing a flow chart of a code including functions, so I did not know the correct way of doing that. I drew a red line next to the diagram to indicate that these line of codes belong to this function. 
+
+**English -> Morse translation system**
+
+**Morse -> English translation system**
 
 
 
@@ -478,7 +489,7 @@ void wait() { // defining the wait function
   delay(2000); // between letters is two second delay
 } 
 ```
-As stated in the basic code steps, we used switch case statements to represent the alphabets. The dot and dashes are declared as a function at the bottomo of the code. To indicate the beginning and the end of the message transmission, we programmed the code for the leds to blink rapidly 7 times.
+As stated in the basic code steps, we used switch case statements to represent the alphabets. The dot and dashes are declared as a function at the bottomo of the code. We decided to blink the leds 7 times very rapidly, to indicate where the message starts and ends. Then the program would tranlsate the alphabets into morse, using the switch case statements, to identify which morse code should be emitted. This could've been written in if statements, although in this case using the "switch and case" was more efficient, in the sense that there are less words, therefore easier to read. This code successfully translates the message from english to morse. The evaluation is explained below in the [evaluation](#evalution) section.
 
 ### Protocols 
 
