@@ -77,57 +77,50 @@ There are more ways, but these are some other ways the users can use devices, ev
 ### Defining the Problem
 
 In this program "Martian Decoder", we will be mainly focusing on how, challenged or disabled users can use our program. The prompt is this: 
-"The year is 2050. The new field of Planet exploration is developing exponentially, although the communication between the planets is sitll precarious. The station in the Earth can only communicate using Morse code, the station in the Moon can only communicate in Binary code.  Communication in Mars must be provided"
+"The year is 2050. The new field of Planet exploration is developing exponentially, although the communication between the planets is still precarious. The station in the Earth can only communicate using Morse code, the station in the Moon can only communicate in Binary code.  Communication in Mars must be provided"
 In short there are 3 stations in different planets (and moon), and they all have a specific way communicating: Earth & Mars - morse, Moon - binary. Because they are not compatible, we need to decode everything into English, to create a smoother communication system among the three planets. The requirements are the following: 
 
 1. Communication of Earth - Moon: Morse code
 2. Communication of Moon - Mars: Binary code
 3. Provide communication system that allows stations to communicate in English 
 4. Keyboard input on each stations is limited to onlt two push buttons
-5. 100 lights and buzzers are avaialable
+5. 100w lights and buzzers are avaialable
 
 Following these requirements we need to create an appropriate program for this specific scenario.
 
 ### Who is the client?
 
-The clients are the people who are working in Earth, and the astronauts who are working in Moon and Mars. They have many works to do and one of them is "communication". Although our clients have too many works, so we want to make at least the commnication part of their work, as simple as possible. Also especially for the astronauts, they have stayed in space for a long time, that they cannot use their hand as nimble as they used to in Earth. 
+The clients are the people who are working in Earth, and the astronauts who are working in Moon and Mars. They have many works to do and one of them is "communication". Although our clients have too much work such as various extraterrestrial researches,  so we want to make at least the commnication part of their work, as simple as possible. Also especially for the astronauts, they have stayed in space for a long time, that they cannot use their hand as nimble as they used to in Earth. In space their fingers usually expand, as compared to normal air pressure, therefore increasing the need for an easy input system for the users. 
 
 
 ### Solution proposed
 
-The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers needs to create a simple system for them, to make their job as lesss stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. In this way they don't have to so much work, but only use 2 buttons to accomplish the process from receiving a message, typing in a message, and then sending the message to the designated location.
+The user of this program is the astronauts who are working in the outerspace. They do have a base to work in, in every planet (and the moon), although, because of the other difficult jobs excluding communication between the planets, us, the developers have the necessity to create a simple system for them, to make their job as less stressful as possible. The solution is, we can create a system, that is able to operate with only 2 buttons. Depending on which button the user presses, and how long they press them, it activiates different modes. In this way they don't have to do so much work, but only use 2 buttons to accomplish the process from receiving a message, typing in a message, and then sending the message to the designated location.
 
 
 ### Success Criteria
 
 1. The display shows every possible character the user can type in (A~Z, 0~9, space)
-2. The letter blinks to indicate which letter is selected
-3. The cursor is automatically moved
-4. The user can select a character
-5. The user can delete a character
-6. The user can send the message to the designated location 
-7. The other station can receive the message 
-8. Earth to Moon: English -> Morse -> English (morse and english can be translated to each other)
-9. Moon to Mars: English -> Binary -> English (binary and english can be translated to each other)
-
+2. The character changes one by one, when button 1 is pressed
+3. The character is selected when button 2 is pressed 
+4. When the character is selected by the user, the message is updated
+5. The user can delete the message character by character
+6. When SEND option is activated, it successfully translates english to morse, and delete the message on the display 
+7. The light bulbs work 
+8. The message in morse is able to be received by users successfully without misinterpretation
+9. When MORSE option is selected, it displays new options on the display (".", "-", " ", "RECEIVE")
+10. Button 1 changes the options
+11. Button 2 selects the option
+12. The message is diplayed and when "RECEIVE" is selected, it successfully tranlsates the message from morse to english 
 
 
 Design
 ----
 
-### English input system
-![SysDig1](engInput.jpg)
-
-**Diagram 1**
-
-This diagram 1 is for the english input system that we have to develop, as written in the [development](#development) section. In this system, it displays the possible characters for the users to type in, and then the selection of the letter automatiaclly moves. The alphabets are dispayed in the order of "most used", so that the user can easily recognize where the letters they want to use are. It requires several actions, including selecting the letter, deleting them, and sending the message. The input of this whole system would be the 2 buttons, to keep the operation method as easy as possible, and the output would be the lcd screen in this case, since we are using arduino kit to create the circuit.
-
-
 ![EngInputFlow1](engInputFlow1.jpg)
 ![EngInputFlow2](engInputFlow2.jpg)
 
-
-**Diagram 2**
+**Flow Diagram 1**
 
 This flow chart indicates the code of the english input system. The code is, according to the flow diagram, seperated into 4 functions, along with the initial variables settings in the beginning. One flaw of the program is that the function orders are different. Meaning that the execution order of the function should be different. I think the setup() and loop() should go after the other two functions, since they are the ones, who are actually running the code. One problem was that, this was the first time drawing a flow chart of a code including functions, so I did not know the correct way of doing that. I drew a red line next to the diagram to indicate that these line of codes belong to this function. 
 
@@ -137,7 +130,7 @@ This flow chart indicates the code of the english input system. The code is, acc
 Development
 -----
  
-### Martian Decoder Step 1: Creating Engligh input
+### Martian Decoder Step 1: Creating English input
 
 After doing all the previous tasks in arduino, and learning about the programming language itself, as well as the concept of binary code, binary gates, and other additional things, we are now ready to start developing the actual martion decoder program. The first step is create an english input system for the clients, since they will be typing the messages in english and sending them to other locations. To mention the requirements for this english input, they are:
 
@@ -147,7 +140,7 @@ After doing all the previous tasks in arduino, and learning about the programmin
 4. Clients should be able to delete their mistakes
 
 By checking on these criterias, we can see how successful our english input system is.
-Here are general stepsi in creating the system:
+Here are general stepsiin creating the system:
 
 1. Ideating how the input system would work
 2. Select the option, that best fits the needs of our clients
@@ -263,16 +256,15 @@ The next step is to create a program that accomplishes the translation part of t
 | About watching | Hard to differentiate between spaces |
 | Immediately know whats happening | May need to educate the users |
 
-After considering these factors, we decided that using two lights might be a better way of sending morse as well as receiving the message. Once the user gets used to this, it would be time efficient, and also easier to read, since there will be no confusion between dots and dashes, which is one flaw of the time based system. Furthermore, it would be a big of a deal to switch the code to the other option when things do not work out as expected, because there is a lot in common between the concept of the 2 scripts. 
+After considering these factors, we decided that using two lights might be a better way of sending morse as well as receiving the message. Once the user gets used to this, it would be more time efficient and easier to read since there will be no confusion between dots and dashes, which is one flaw of the time based system. Furthermore, it would not be a big of a deal to switch the code to the other option when things do not work out as expected, because there is a lot in common between the concept of the 2 scripts. 
 
 **Basic code**
 
 Before going into the development of the translation program using two lights, we developed the fundamental steps that can be used for both codes:
 
-1. Define "dot" and "dash", as well as different type of spaces (within a letter, between letters words) in seperate functios to prevent repetition of the same code
+1. Define "dot" and "dash", as well as different type of spaces (within a letter, between letters words) in seperate functios 
 2. Blink light rapdily 5 times to indicate the start of the message 
-3. Use switch case statements which looks at the letter and then translates 
-
+3. Use case switch statements (ex. case A, switch dot(), dash()...)
 
 ### Protocols 
 
