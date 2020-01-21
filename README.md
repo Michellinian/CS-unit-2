@@ -248,7 +248,7 @@ void selected(){
 ``` 
 This is the entire code of the enlgish input system. In this code there are different parts. First is the changeLetter() function. In this function, it allows the character that is appearing on the lcd screen to change when the user presses the button. Meaning that when it is A and when the button is pressed it becomes B, and so on. And when it reaches the last character it goes back to A and start the restart the entire process. Selected() function, allows the user to delete and send the message. These functions are called in the setup function using interrupts, whc¥ich is necessary when calling one or more functions. Interrupts allows different code to be executed in the middle of the execution of other codes. This was successful and it performed exactly how we intended to. Evaluations done further in the evaluation section below. 
 
-### Martian Decoder Step 2: Development of translation program 
+### Martian Decoder Step 2: English to Morse translation
 
 The next step is to create a program that accomplishes the translation part of the Martian decoder program. From the Earth station only morse can be emitted, therefore we need to develop a program that translates the english message which the user want to send, into morse so that it can be sent to other stations. There are many things to be considerd although what needs to be considered the most the usability. How should the morse code be emmited, so that the receivers can read the message easily? There was the option of using 1 or 2 light bulbs. After discussing with the moon station, it all came down to which was easier for the reader to understand, using one light bulb and lighting up the bulb time based, or using two light bulbs and representing dots and dashes with different numbers of light bulbs? 
 
@@ -490,6 +490,198 @@ void wait() { // defining the wait function
 } 
 ```
 As stated in the basic code steps, we used switch case statements to represent the alphabets. The dot and dashes are declared as a function at the bottomo of the code. We decided to blink the leds 7 times very rapidly, to indicate where the message starts and ends. Then the program would tranlsate the alphabets into morse, using the switch case statements, to identify which morse code should be emitted. This could've been written in if statements, although in this case using the "switch and case" was more efficient, in the sense that there are less words, therefore easier to read. This code successfully translates the message from english to morse. The evaluation is explained below in the [evaluation](#evalution) section.
+
+### Martian Decoder Step 3: Morse to English translation
+```sh 
+// include the library code:
+#include <LiquidCrystal.h>
+int index = 0; 
+String keyboard[]={".-", "-...","-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "RESET", "DEL"};
+String text = "";
+String chosen = "";
+int numOptions = 29;
+int i = 0;
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(12, 11, 5, 4, 9, 8);
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  pinMode(10, OUTPUT);
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  attachInterrupt(0, changeLetter, RISING);//button A in port 2
+  attachInterrupt(1, selected, RISING);//button B in port 3
+}
+
+void loop() {
+  // set the cursor to column 0, line 1
+  // (note: line 1 is the second row, since counting begins with 0):
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print(keyboard[index]);
+  lcd.setCursor(0, 1);
+  lcd.print(chosen); // CHANGE TEXT TO TRANSLATED
+  delay(100);
+}
+
+//This function changes the letter in the keyboard
+void changeLetter(){
+  static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > 200)
+  {
+  
+    last_interrupt_time = interrupt_time;// If interrupts come faster than 200ms, assum
+    index++;
+      //check for the max row number
+    if(index==numOptions){
+      index=0; //loop back to first row
+    } 
+ }
+}
+
+//this function adds the letter to the text or send the msg
+void selected(){
+  static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > 200)
+  {
+  
+    last_interrupt_time = interrupt_time;// If interrupts come faster than 200ms, assum
+    
+    String key = keyboard[index];
+    if (key == "DEL")
+    {
+      int len = text.length();
+      text.remove(len-1);
+    }
+    else if (key == "RESET")
+    {
+      chosen = "";
+    }
+    else{
+      text += key;
+      convert();
+    }
+    index = 0; //restart the index
+  }
+}
+
+void convert() {
+  Serial.print("Starting conversion");
+  lcd.setCursor(0, 1);
+  if (text == ".-" ) {
+    String key = "A"; 
+    chosen += key;
+  }
+  else if (text == ".-" ) {
+    String key = "B"; 
+    chosen += key;
+  }
+  else if (text == "-.-.") {
+    String key = "C"; 
+    chosen += key;
+  }
+  else if (text == "-..") {
+    String key = "D"; 
+    chosen += key;
+  }
+  else if (text == ".") {
+    String key = "E"; 
+    chosen += key;
+  }
+  else if (text == "..-.") {
+    String key = "F"; 
+    chosen += key;
+  }
+  else if (text == "--.") {
+    String key = "G";
+    chosen += key;    
+  }
+  else if (text == "....") {
+    String key = "H"; 
+    chosen += key;
+  }
+  else if (text == "..") {
+    String key = "I"; 
+    chosen += key;
+  }
+  else if (text == ".---") {
+    String key = "J"; 
+    chosen += key;
+  }
+  else if (text == "-.-") {
+    String key = "K"; 
+    chosen += key;
+  }
+  else if (text == ".-..") {
+    String key = "L"; 
+    chosen += key;
+  }
+  else if (text == "--") {
+    String key = "M"; 
+    chosen += key;
+  }
+  else if (text == "-.") {
+    String key = "N"; 
+    chosen += key;
+  }
+  else if (text == "---") {
+    String key = "O"; 
+    chosen += key;
+  }
+  else if (text == ".-" ) {
+    String key = "P"; 
+    chosen += key;
+  }
+  else if (text == "-.-.") {
+    String key = "Q"; 
+    chosen += key;
+  }
+  else if (text == "-..") {
+    String key = "R"; 
+    chosen += key;
+  }
+  else if (text == ".") {
+    String key = "S"; 
+    chosen += key;
+  }
+  else if (text == "..-.") {
+    String key = "T"; 
+    chosen += key;
+  }
+  else if (text == "--.") {
+    String key = "U"; 
+    chosen += key;
+  }
+  else if (text == "...-") {
+    String key = "V"; 
+    chosen += key;
+  }
+  else if (text == ".--") {
+    String key = "W"; 
+    chosen += key;
+  }
+  else if (text == "-..-") {
+    String key = "X"; 
+    chosen += key;
+  }
+  else if (text == "-.--") {
+    String key = "Y";
+    chosen += key;
+  }
+  else if (text == "--..") {
+    String key = "Z";
+    chosen += key; 
+  }
+  text = "";
+}
+
+
+```
 
 ### Protocols 
 
