@@ -174,11 +174,12 @@ The class idea is the system diagram 1 in the [planning](#planning) section, alo
 **Step 3: Coding**
 
 ```sh 
+
 // include the library code:
 #include <LiquidCrystal.h>
 int index = 0; 
 // add all the letters and digits to the keyboard
-String keyboard[]={"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "SENT", "DEL"};
+String keyboard[]={"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "SENT", "DEL"};
 String text = "";
 int numOptions = 6;
 
@@ -237,14 +238,17 @@ void selected(){
     }
     else if(key == "SENT")
     {
-      sent();
       text="";
     }else{
       text += key;
     }
     index = 0; //restart the index
   }
+  
+  
+  //
 }
+ 
 ``` 
 This is the entire code of the enlgish input system. In this code there are different parts. First is the changeLetter() function. In this function, it allows the character that is appearing on the lcd screen to change when the user presses the button. Meaning that when it is A and when the button is pressed it becomes B, and so on. And when it reaches the last character it goes back to A and start the restart the entire process. Selected() function, allows the user to delete and send the message. These functions are called in the setup function using interrupts, whc¥ich is necessary when calling one or more functions. Interrupts allows different code to be executed in the middle of the execution of other codes. This was successful and it performed exactly how we intended to. Evaluations done further in the evaluation section below. 
 
@@ -289,184 +293,10 @@ void sent() {
     digitalWrite(13, LOW);
     delay(300);
 }
-      
-int strLen = text.length(); // setting len to length to text
-for (int i = 0; i < strLen; i++) {  // cycling through each letter of text 
-  switch (text.charAt(i)) { // translating for i’th letter
- 
-case 'A':
-  dot();
-  dash();
-  wait();
-  break;
-case 'B':
-  dash();
-  dot();
-  dot();
-  dot();
-  wait();
-  break;
-case 'C': 
-  dash();
-  dot();
-  dash();
-  dot();
-  wait();
-  break;
-case 'D':
-  dash();
-  dot();
-  dot();
-  wait();
-  break;
-case 'E':
-  dot();
-  wait();
-  break;
-case 'F': 
-  dot();
-  dot();
-  dash();
-  dot();
-  wait();
-  break;
-case 'G':
-  dash();
-  dash();
-  dot();
-  wait();
-  break;
-case 'H':
-  dot();
-  dot();
-  dot();
-  dot();
-  wait();
-  break;
-case 'I':
-  dot();
-  dot();
-  wait();
-  break;
-case 'J':
-  dot();
-  dash();
-  dash();
-  dash();
-  wait();
-  break;
-case 'K':
-  dash();
-  dot();
-  dash();
-  wait();
-  break;
-case 'L':
-  dot();
-  dash();
-  dot();
-  dot();
-  wait();
-  break;
-case 'M':
-  dash();
-  dash();
-  wait();
-  break;
-case 'N':
-  dash();
-  dot();
-  wait();
-  break;
-case 'O':
-  dash();
-  dash();
-  dash();
-  wait();
-  break;
-case 'P':
-  dot();
-  dash();
-  dash();
-  dot();
-  wait();
-  break;
-case 'Q':
-  dash();
-  dash();
-  dot();
-  dash();
-  wait();
-  break;
-case 'R':
-  dot();
-  dash();
-  dot();
-  wait();
-  break;
-case 'S':
-  dot();
-  dot();
-  dot();
-  wait();
-  break;
-case 'T':
-  dash();
-  wait();
-  break;
-case 'U':
-  dot();
-  dot();
-  dash();
-  wait();
-  break;
-case 'V':
-  dot();
-  dot();
-  dot();
-  dash();
-  wait();
-  break;
-case 'W':
-  dot();
-  dash();
-  dash();
-  wait();
-  break;
-case 'X':
-  dash();
-  dot();
-  dot();
-  dash();
-  wait();
-  break;
-case 'Y':
-  dash();
-  dot();
-  dash();
-  dash();
-  wait();
-  break;
-case 'Z': 
-  dash();
-  dash();
-  dot();
-  dot();
-  wait();
-  break; 
-case ' ':
-  digitalWrite(13, LOW);
-  delay(4000);
-if (i < strLen - 1) { 
- Serial.print("done");
-  // for (int i = 0; i < 7; i++) { // blink light five times to indicate beginning of message
- // digitalWrite(13, HIGH);
- // delay(300);
- // digitalWrite(13, LOW);
- // delay(300); }
-} 
-  }}}
-  
+```
+First we created a function called sent, which tells the leds to blink 7 rapid times, to indicate the start and finish of the message. We used a for loop to do this. We also added the Serial.print command, just for us, the developers to see if the code is working. Then this is the second part of the code.
+
+```sh     
 void dot() {  // defining the dot function as one light being ON for one second 
 Serial.print("dot ");
 digitalWrite(13, HIGH);
@@ -489,7 +319,196 @@ void wait() { // defining the wait function
   delay(2000); // between letters is two second delay
 } 
 ```
-As stated in the basic code steps, we used switch case statements to represent the alphabets. The dot and dashes are declared as a function at the bottomo of the code. We decided to blink the leds 7 times very rapidly, to indicate where the message starts and ends. Then the program would tranlsate the alphabets into morse, using the switch case statements, to identify which morse code should be emitted. This could've been written in if statements, although in this case using the "switch and case" was more efficient, in the sense that there are less words, therefore easier to read. This code successfully translates the message from english to morse. The evaluation is explained below in the [evaluation](#evalution) section.
+
+We defined dots, dashes and spaces beforehand so that we don't have to type, for example:
+```sh 
+switch (text) {
+  case A:
+    digitalWrite(13, HIGH);
+    // some more codes using delay and digitalWrite
+}
+```
+
+Because we have already defined how dot, dash, space should be represented, we can now do this to create the rest of code.
+```sh 
+int strLen = text.length(); // setting len to length to text
+for (int i = 0; i < strLen; i++) {  // cycling through each letter of text 
+  switch (text.charAt(i)) { // translating for i’th letter
+    case 'A':
+      dot();
+      dash();
+      wait();
+      break;
+    case 'B':
+      dash();
+      dot();
+      dot();
+      dot();
+      wait();
+      break;
+    case 'C': 
+      dash();
+      dot();
+      dash();
+      dot();
+      wait();
+      break;
+    case 'D':
+      dash();
+      dot();
+      dot();
+      wait();
+      break;
+    case 'E':
+      dot();
+      wait();
+      break;
+    case 'F': 
+      dot();
+      dot();
+      dash();
+      dot();
+      wait();
+      break;
+    case 'G':
+      dash();
+      dash();
+      dot();
+      wait();
+      break;
+    case 'H':
+      dot();
+      dot();
+      dot();
+      dot();
+      wait();
+      break;
+    case 'I':
+      dot();
+      dot();
+      wait();
+      break;
+    case 'J':
+      dot();
+      dash();
+      dash();
+      dash();
+      wait();
+      break;
+    case 'K':
+      dash();
+      dot();
+      dash();
+      wait();
+      break;
+    case 'L':
+      dot();
+      dash();
+      dot();
+      dot();
+      wait();
+      break;
+    case 'M':
+      dash();
+      dash();
+      wait();
+      break;
+    case 'N':
+      dash();
+      dot();
+      wait();
+      break;
+    case 'O':
+      dash();
+      dash();
+      dash();
+      wait();
+      break;
+    case 'P':
+      dot();
+      dash();
+      dash();
+      dot();
+      wait();
+      break;
+    case 'Q':
+      dash();
+      dash();
+      dot();
+      dash();
+      wait();
+      break;
+    case 'R':
+      dot();
+      dash();
+      dot();
+      wait();
+      break;
+    case 'S':
+      dot();
+      dot();
+      dot();
+      wait();
+      break;
+    case 'T':
+      dash();
+      wait();
+      break;
+    case 'U':
+      dot();
+      dot();
+      dash();
+      wait();
+      break;
+    case 'V':
+      dot();
+      dot();
+      dot();
+      dash();
+      wait();
+      break;
+    case 'W':
+      dot();
+      dash();
+      dash();
+      wait();
+      break;
+    case 'X':
+      dash();
+      dot();
+      dot();
+      dash();
+      wait();
+      break;
+    case 'Y':
+      dash();
+      dot();
+      dash();
+      dash();
+      wait();
+      break;
+    case 'Z': 
+      dash();
+      dash();
+      dot();
+      dot();
+      wait();
+      break; 
+    case ' ':
+      digitalWrite(13, LOW);
+      delay(4000);
+    if (i < strLen - 1) { 
+      Serial.print("done");
+      for (int i = 0; i < 7; i++) { // blink light five times to indicate beginning of message
+      digitalWrite(13, HIGH);
+      delay(300);
+      digitalWrite(13, LOW);
+      delay(300);
+    }
+  } 
+}
+```
+This part of the code shows how the computer should translate each alphabet. Each alphabet has a different way of representing it in morse, and so by calling dot and dash functions we can determine how the leds should light differently, depending on the alphabet. 
 
 ### Martian Decoder Step 3: Morse to English translation
 ```sh 
