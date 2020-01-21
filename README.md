@@ -118,6 +118,9 @@ All these should be able to be manipulated by just 2 buttons. In this way, altho
 11. Button 2 selects the option
 12. The message is diplayed and when "RECEIVE" is selected, it successfully tranlsates the message from morse to english 
 
+### Justification of the tool
+
+Throuhgout the whole process, we will be using the programming language: Arduino C. Since we need to test the program physically, an actual circuit was necessary, therefore Arduino C is the by far the most suitable programming language that we can use to test the program physically. Hence the circuit was created by using the Arduino UNO. This best fits with the programming language that we use. Also to test it virtually on computer, we used a software called Tinkercad. This also using the language arduino c, and we use this tool and test the code, before we actually try it out with the physical Arudino UNO. Virtual testing requires less effort and time, so we use this to get the code working correctly, and then finally testing it out on the real one. 
 
 Design
 ----
@@ -174,14 +177,13 @@ The class idea is the system diagram 1 in the [planning](#planning) section, alo
 **Step 3: Coding**
 
 ```sh 
-
 // include the library code:
 #include <LiquidCrystal.h>
 int index = 0; 
 // add all the letters and digits to the keyboard
 String keyboard[]={"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "SENT", "DEL"};
 String text = "";
-int numOptions = 6;
+int numOptions = 28;
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(12, 11, 5, 4, 9, 8);
@@ -250,7 +252,7 @@ void selected(){
 }
  
 ``` 
-This is the entire code of the enlgish input system. In this code there are different parts. First is the changeLetter() function. In this function, it allows the character that is appearing on the lcd screen to change when the user presses the button. Meaning that when it is A and when the button is pressed it becomes B, and so on. And when it reaches the last character it goes back to A and start the restart the entire process. Selected() function, allows the user to delete and send the message. These functions are called in the setup function using interrupts, whc¥ich is necessary when calling one or more functions. Interrupts allows different code to be executed in the middle of the execution of other codes. This was successful and it performed exactly how we intended to. Evaluations done further in the evaluation section below. 
+This is the entire code of the enlgish input system. In this code there are different parts. First is the changeLetter() function. In this function, it allows the character that is appearing on the lcd screen to change when the user presses the button. Meaning that when it is A and when the button is pressed it becomes B, and so on. And when it reaches the last character it goes back to A and start the restart the entire process. Selected() function, allows the user to delete and send the message. These functions are called in the setup function using interrupts, whc¥ich is necessary when calling one or more functions. Interrupts allows different code to be executed in the middle of the execution of other codes. This was successful and it performed exactly how we intended to. Evaluations done further in the [evaluation](#evaluation) section below. 
 
 ### Martian Decoder Step 2: English to Morse translation
 
@@ -287,32 +289,33 @@ Before going into the development of the translation program using two lights, w
 ```sh 
 void sent() {
   Serial.print("begin ");
-    for (int i = 0; i  < 7; i++) { // blink light seven times to indicate beginning of message
+  for (int i = 0; i  < 7; i++) { // blink light seven times to indicate beginning of message
     digitalWrite(13, HIGH);
     delay(300);
     digitalWrite(13, LOW);
     delay(300);
+  }
+  // case statements for translation
 }
+    
 ```
 First we created a function called sent, which tells the leds to blink 7 rapid times, to indicate the start and finish of the message. We used a for loop to do this. We also added the Serial.print command, just for us, the developers to see if the code is working. Then this is the second part of the code.
 
 ```sh     
 void dot() {  // defining the dot function as one light being ON for one second 
-Serial.print("dot ");
-digitalWrite(13, HIGH);
-delay(1000);
-digitalWrite(13, LOW);
-delay(1000);
+  Serial.print("dot ");
+  digitalWrite(13, HIGH);
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(500);
 }
 
 void dash() { // defining the dash function as the light being on for three seconds
-Serial.print("dash ");
-digitalWrite(13, HIGH);
-digitalWrite(10, HIGH);
-delay(3000);
-digitalWrite(13, LOW);
-digitalWrite(10, LOW);
-delay(1000);
+  Serial.print("dash ");
+  digitalWrite(13, HIGH);
+  delay(3000);
+  digitalWrite(13, LOW);
+  delay(500);
 }
 
 void wait() { // defining the wait function 
@@ -331,9 +334,12 @@ switch (text) {
 
 Because we have already defined how dot, dash, space should be represented, we can now do this to create the rest of code.
 ```sh 
-int strLen = text.length(); // setting len to length to text
-for (int i = 0; i < strLen; i++) {  // cycling through each letter of text 
-  switch (text.charAt(i)) { // translating for i’th letter
+// setting len to length to text
+int strLen = text.length(); 
+// cycling through each letter of text 
+for (int i = 0; i < strLen; i++) {  
+  // translating for i’th letter
+  switch (text.charAt(i)) { 
     case 'A':
       dot();
       dash();
@@ -499,7 +505,7 @@ for (int i = 0; i < strLen; i++) {  // cycling through each letter of text
       delay(4000);
     if (i < strLen - 1) { 
       Serial.print("done");
-      for (int i = 0; i < 7; i++) { // blink light five times to indicate beginning of message
+      for (int i = 0; i < 7; i++) { // blink light seven times to indicate beginning of message
       digitalWrite(13, HIGH);
       delay(300);
       digitalWrite(13, LOW);
@@ -508,87 +514,38 @@ for (int i = 0; i < strLen; i++) {  // cycling through each letter of text
   } 
 }
 ```
-This part of the code shows how the computer should translate each alphabet. Each alphabet has a different way of representing it in morse, and so by calling dot and dash functions we can determine how the leds should light differently, depending on the alphabet. 
+This code goes inside the sent function. This part of the code shows how the computer should translate each alphabet. Each alphabet has a different way of representing it in morse, and so by calling dot and dash functions we can determine how the leds should light differently, depending on the alphabet. For example, if the message was "cat", the led should blink as "dash dot dash dot wait dot dash wait dash wait". But before the message translation is initiated, the led would blink 7 times. Also at the end of the code above, there is a for loop created also to blink the leds 7 times, this time to indicate the finish of transimission. Overall it is a very long code although, this is the most line efficient code that we could come up with. Further evaluation of this code is done below in the [evaluation](#evaluation) section.
 
 ### Martian Decoder Step 3: Morse to English translation
+
+After creating a translation program from english to morse, and ensuring that the users can send the message in morse, now it is time to think of how the users can receive the message. Receiving morse code the moon station and converting that to english needs a little manual step, where the users have to write down the dot and dashes, for example on a piece of paper. This is the steps for receiving the message in morse, and translating it into english:
+1. User will write down the message in dot and dashes (by receiving led lgiths)
+2. The lcd display would show the alphabets in morse (ex. ".-", "-...", etc.)
+3. The user will match the corresponding character and select the morse code on display
+4. Automatically when selecting the morse code, it also shows the alphabet on the display simultaneously
+
+For the code, we were initially thinking of creating a whole new function called "MORSE", in the same program and updating the string values, and so on. Although this was a little difficult for us, and we had limited amount of time to develop this, we decided to create a whole new program just for receiving and translating the message. This way, we could reuse the english input system code, and only modify the string values. Instead of using actual alphabets, we substituted them by "morse" alphabet, such as the code below:
 ```sh 
-// include the library code:
-#include <LiquidCrystal.h>
-int index = 0; 
 String keyboard[]={".-", "-...","-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "RESET", "DEL"};
-String text = "";
-String chosen = "";
-int numOptions = 29;
-int i = 0;
-
-// initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(12, 11, 5, 4, 9, 8);
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(13, OUTPUT);
-  pinMode(10, OUTPUT);
-  // set up the LCD's number of columns and rows:
-  lcd.begin(16, 2);
-  // Print a message to the LCD.
-  attachInterrupt(0, changeLetter, RISING);//button A in port 2
-  attachInterrupt(1, selected, RISING);//button B in port 3
 }
+```
 
-void loop() {
-  // set the cursor to column 0, line 1
-  // (note: line 1 is the second row, since counting begins with 0):
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print(keyboard[index]);
-  lcd.setCursor(0, 1);
-  lcd.print(chosen); // CHANGE TEXT TO TRANSLATED
-  delay(100);
+Also another difference is that in the selected function, we added a new section:
+```sh 
+if (key == "DEL") {
+  int len = text.length();
+  text.remove(len-1);
+} else if (key == "RESET") {
+  chosen = "";
+} else {
+  text += key;
+  // translate the message from morse to english 
+  convert();
 }
+```
+What this section is saying is that, when reset is selected, the morse message that user entered would be resetted. And if the selected jey is not, delete nor reset, then it will convert the morse message into english. This is the code that determines which morse code should be translated to which alphabet: 
 
-//This function changes the letter in the keyboard
-void changeLetter(){
-  static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > 200)
-  {
-  
-    last_interrupt_time = interrupt_time;// If interrupts come faster than 200ms, assum
-    index++;
-      //check for the max row number
-    if(index==numOptions){
-      index=0; //loop back to first row
-    } 
- }
-}
-
-//this function adds the letter to the text or send the msg
-void selected(){
-  static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > 200)
-  {
-  
-    last_interrupt_time = interrupt_time;// If interrupts come faster than 200ms, assum
-    
-    String key = keyboard[index];
-    if (key == "DEL")
-    {
-      int len = text.length();
-      text.remove(len-1);
-    }
-    else if (key == "RESET")
-    {
-      chosen = "";
-    }
-    else{
-      text += key;
-      convert();
-    }
-    index = 0; //restart the index
-  }
-}
-
+```sh 
 void convert() {
   Serial.print("Starting conversion");
   lcd.setCursor(0, 1);
@@ -698,9 +655,9 @@ void convert() {
   }
   text = "";
 }
-
-
 ```
+In this way the user is able to translate the morse code into english. Although the process of receiving the morse code is done by the human hand, therefore it is very important that the morse code emitted by a single light bulb is very easy for the users to read. Then the users would only have to use one finger, to understand what that message means. 
+
 
 ### Protocols 
 
