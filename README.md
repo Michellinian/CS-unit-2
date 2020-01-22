@@ -751,9 +751,12 @@ This process can be done all the way until the very end. When button 1 is presse
 As you can see, the selected character is printed on the new line down the cycling alphabets. This indicates that the letter has been successfully selected. 
 
 ![append](append.gif)
+
 Also simultaneously it updates the message, meaning that alphabets are appendable. These test shows that the program has passed the thrid and fourth criteria.
 
 ### Success Criteria 5. The user can delete the message character by character
+
+![delete](delete.gif)
 
 By selecting delete, the users are able to delete the unwanted alphabets as shown above. Therefore success criteria 5 is also accomplished. 
 
