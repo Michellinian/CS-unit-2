@@ -719,6 +719,8 @@ Evaluation
 1. The display shows every possible alphabet the user can type in
 2. The character changes one by one, when button 1 is pressed
 
+![englishInput](ezgif.com-crop(1).gif)
+
 
 Improvements
 ---------
