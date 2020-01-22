@@ -734,7 +734,7 @@ Evaluation
 1. The display shows every possible alphabet the user can type in
 2. The character changes one by one, when button 1 is pressed
 
-![EngInput](ezgif.com-crop(1).gif)
+[]
 
 This shows that all the alphabets can be shown just by pressing button 1. It cycles through every alphabet when the user presses the button, and when it reached the end it jumps back to A, and repeat the whole cycle. It also includes two modes, delete and send, which is exactly what is required. 
 
