@@ -760,7 +760,9 @@ By selecting delete, the users are able to delete the unwanted alphabets as show
 6. When SEND option is activated, it successfully translates english to morse, and delete the message on the display 
 7. Leds work
 
-By selecting send, english is translated in morse automatically, and is shown in the leds. This shows that the leds are correctly circuited without any mistake. Also the output of the led matches to what we expect to see, therefore the english to morse translation code must be correct. Furthermore after send is selected the message dissapears and resets itself, which passes this success criteria.
+![sent](ezgif.com-video-to-gif.gif)
+
+In this gif it shows the morse code of A. By selecting send, english is translated in morse automatically, and is shown in the leds. This shows that the leds are correctly circuited without any mistake. Also the output of the led matches to what we expect to see, therefore the english to morse translation code must be correct. Furthermore after send is selected the message dissapears and resets itself, which passes this success criteria.
 
 ### Success Criteria 8. The message in morse is able to be received by users successfully without misinterpretation
 
