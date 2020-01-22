@@ -734,8 +734,7 @@ Evaluation
 1. The display shows every possible alphabet the user can type in
 2. The character changes one by one, when button 1 is pressed
 
-![enginput1](enginput.png)   
-![enginput2](enginput2.png)
+![enginput](enginput.gif)
 
 This process can be done all the way until the very end. These photos just show the part of the process. When button 1 is pressed this is the outcome. This can be done until z, including the del and send option. This shows that success criteria 1 and 2 are passed. 
 
