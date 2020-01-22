@@ -79,3 +79,10 @@ This period was also dedicated to developing the unit 2 program. We started test
 ### Class 18 (2020/01/20)
 
 We started off with the kahoot to check what we've learnt so far in unit 2. It was actually hard although I managed to get some of the questions correct. I also used common sense to answer some questions, which led me to right answer. Although, I still felt the need to not only practice coding, but also review more about how the computers works. Then we did a small coding practice using arrays. The first section, I was able to do it alone, although,　for the second section about generating random numbers, I had help for classmates and teachers to figure out the code. After that we went back to developing the translation program. We are now done with the english to morse program, and moving on to the english to morse translation. We thought this would have to be done all in the same arduino, although after discovering that we could use 2 arduinos, things got a lot easier. We are very close to finishing the code, except for one question: How do you print something on lcd? If we can answer this question, we would be able to fully develop the communication program. 
+
+### Class 19 (2020/01/21)
+
+In this class, we started with another coding warm up. We created a program that reads "year, firstname, lastname" and generates the email address such as "year.firstname.lastname@uwcisak.jp" for the user. After finishing up this short warm up, we used the rest of the class time to finish up our morse to english translation code. This was the last class to work on the program. 
+
+### Class 20 (2020/01/22)
+
