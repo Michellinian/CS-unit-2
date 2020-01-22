@@ -125,12 +125,16 @@ Throughout the whole process, we will be using the programming language: Arduino
 Design
 ----
 
-**System diagram**
+### System diagram
+
+![systemdiagram](systemdiagram.png)
+
+This is the over all flow of the program. There are 3 stations including earth, moon, and mars. They have a specific code that they can use to communicate. From Earth to Mars, the communication can be done because of the moon station converting morse to binary. 
+
+### English Input System
 
 ![EngInputFlow1](engInputFlow1.jpg)
 ![EngInputFlow2](engInputFlow2.jpg)
-
-**English Input System**
 
 This flow chart indicates the code of the english input system. The code is, according to the flow diagram, seperated into 4 functions, along with the initial variables settings in the beginning. One flaw of the program is that the function orders are different. Meaning that the execution order of the function should be different. I think the setup() and loop() should go after the other two functions, since they are the ones, who are actually running the code. One problem was that, this was the first time drawing a flow chart of a code including functions, so I did not know the correct way of doing that. I drew a red line next to the diagram to indicate that these line of codes belong to this function. 
 
@@ -736,17 +740,14 @@ Evaluation
 
 ![enginput](enginput.gif)
 
-This process can be done all the way until the very end. These photos just show the part of the process. When button 1 is pressed this is the outcome. This can be done until z, including the del and send option. This shows that success criteria 1 and 2 are passed. 
+This process can be done all the way until the very end. When button 1 is pressed this is the outcome. This can be done until z, including the del and send option. This shows that success criteria 1 and 2 are passed. 
 
 ### Success Criteria 3 and 4
 3. The character is selected when button 2 is pressed
 4. When the character is selected by the user, the message is updated
 
-![select](select.png)
-As you can see, the selected character is printed on the new line down the cycling alphabets. 
-
-![append](mesupdate.png)
-This indicates that the letter has been successfully selected. Also simultaneously it updates the message, meaning that alphabets are appendable. These test shows that the program has passed the thrid and fourth criteria.
+![select](select.gif)
+As you can see, the selected character is printed on the new line down the cycling alphabets. This indicates that the letter has been successfully selected. Also simultaneously it updates the message, meaning that alphabets are appendable. These test shows that the program has passed the thrid and fourth criteria.
 
 ### Success Criteria 5. The user can delete the message character by character
 
