@@ -127,7 +127,7 @@ Design
 
 ### System diagram
 
-![systemdiagram](systemdiagram.png)
+![systemdiagram](systemdiagram.jpg)
 
 This is the over all flow of the program. There are 3 stations including earth, moon, and mars. They have a specific code that they can use to communicate. From Earth to Mars, the communication can be done because of the moon station converting morse to binary. 
 
@@ -747,13 +747,14 @@ This process can be done all the way until the very end. When button 1 is presse
 4. When the character is selected by the user, the message is updated
 
 ![select](select.gif)
-As you can see, the selected character is printed on the new line down the cycling alphabets. This indicates that the letter has been successfully selected. Also simultaneously it updates the message, meaning that alphabets are appendable. These test shows that the program has passed the thrid and fourth criteria.
+
+As you can see, the selected character is printed on the new line down the cycling alphabets. This indicates that the letter has been successfully selected. 
+
+![append](append.gif)
+Also simultaneously it updates the message, meaning that alphabets are appendable. These test shows that the program has passed the thrid and fourth criteria.
 
 ### Success Criteria 5. The user can delete the message character by character
 
-![delete1](delete1.png)
-This is before selecting delete option.
-![delete2](delete2.png)
 By selecting delete, the users are able to delete the unwanted alphabets as shown above. Therefore success criteria 5 is also accomplished. 
 
 ### Success Criteria 6 and 7
