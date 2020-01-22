@@ -105,7 +105,7 @@ All these should be able to be manipulated by just 2 buttons. In this way, altho
 
 ### Success Criteria (For Earth station)
 
-1. The display shows every possible character the user can type in (A~Z, 0~9, space)
+1. The display shows every possible alphabet the user can type in
 2. The character changes one by one, when button 1 is pressed
 3. The character is selected when button 2 is pressed 
 4. When the character is selected by the user, the message is updated
@@ -284,7 +284,7 @@ Before going into the development of the translation program using two lights, w
 2. Blink light rapdily 5 times to indicate the start of the message 
 3. Use case switch statements (ex. case A, switch dot(), dash()...)
 
-**Prototype**
+**Prototype of using two lights**
 
 ```sh 
 void sent() {
@@ -307,15 +307,17 @@ void dot() {  // defining the dot function as one light being ON for one second
   digitalWrite(13, HIGH);
   delay(1000);
   digitalWrite(13, LOW);
-  delay(500);
+  delay(1000);
 }
 
 void dash() { // defining the dash function as the light being on for three seconds
   Serial.print("dash ");
   digitalWrite(13, HIGH);
+  digitalWrite(10, HIGH);
   delay(3000);
   digitalWrite(13, LOW);
-  delay(500);
+  digitalWrite(10, LOW);
+  delay(1000);
 }
 
 void wait() { // defining the wait function 
@@ -525,6 +527,7 @@ After creating a translation program from english to morse, and ensuring that th
 4. Automatically when selecting the morse code, it also shows the alphabet on the display simultaneously
 
 For the code, we were initially thinking of creating a whole new function called "MORSE", in the same program and updating the string values, and so on. Although this was a little difficult for us, and we had limited amount of time to develop this, we decided to create a whole new program just for receiving and translating the message. This way, we could reuse the english input system code, and only modify the string values. Instead of using actual alphabets, we substituted them by "morse" alphabet, such as the code below:
+
 ```sh 
 String keyboard[]={".-", "-...","-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "RESET", "DEL"};
 }
@@ -675,11 +678,8 @@ Protocols are the set of rules computers follow when communicating across a netw
 | VPN (Virtual Private Network) | Gurdeep Singh-Pall | provides encrypted internet connections |
  
 
-
 Evaluation 
 =========
-
-(In progress)
 
 ### Comparison of Bash & Arduino 
 
@@ -713,6 +713,19 @@ Evaluation
 2. Too many symbols (), {}, etc. 
 3. Slow execution speed (simulation speed is way slower than bash)
 4. Many different commands to remember
+
+
+### Success criteria 1 and 2
+1. The display shows every possible alphabet the user can type in
+2. The character changes one by one, when button 1 is pressed
+
+
+Improvements
+---------
+
+### 1. English Input System
+
+
 
 
 Resources
