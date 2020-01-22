@@ -113,14 +113,14 @@ All these should be able to be manipulated by just 2 buttons. In this way, altho
 6. When SEND option is activated, it successfully translates english to morse, and delete the message on the display 
 7. The light bulbs work 
 8. The message in morse is able to be received by users successfully without misinterpretation
-9. When MORSE option is selected, it displays new options on the display (".", "-", " ", "RECEIVE")
+9. When MORSE option is selected, it displays new options on the display (".-", "-...", .... ," ", "DEL", "RESET")
 10. Button 1 changes the options
 11. Button 2 selects the option
 12. The message is diplayed and when "RECEIVE" is selected, it successfully tranlsates the message from morse to english 
 
 ### Justification of the tool
 
-Throuhgout the whole process, we will be using the programming language: Arduino C. Since we need to test the program physically, an actual circuit was necessary, therefore Arduino C is the by far the most suitable programming language that we can use to test the program physically. Hence the circuit was created by using the Arduino UNO. This best fits with the programming language that we use. Also to test it virtually on computer, we used a software called Tinkercad. This also using the language arduino c, and we use this tool and test the code, before we actually try it out with the physical Arudino UNO. Virtual testing requires less effort and time, so we use this to get the code working correctly, and then finally testing it out on the real one. 
+Throughout the whole process, we will be using the programming language: Arduino C. Since we need to test the program physically, an actual circuit was necessary, therefore Arduino C is the by far the most suitable programming language that we can use to test the program physically. Hence the circuit was created by using the Arduino UNO. This best fits with the programming language that we use. Also to test it virtually on computer, we used a software called Tinkercad. This also using the language arduino c, and we use this tool and test the code, before we actually try it out with the physical Arudino UNO. Virtual testing requires less effort and time, so we use this to get the code working correctly, and then finally testing it out on the real one. 
 
 Design
 ----
@@ -286,6 +286,21 @@ Before going into the development of the translation program using two lights, w
 
 **Prototype of using two lights**
 
+First in the setup code we added new lines: 
+```sh 
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  pinMode(10, OUTPUT);
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  attachInterrupt(0, changeLetter, RISING);//button A in port 2
+  attachInterrupt(1, selected, RISING);//button B in port 3
+}
+```
+This pinMode is declaring what is the input, ouput and, which port is it connected to. In this case they are both ouputs because the leds will be acting accordingly to the input that the user gives. 
+
 ```sh 
 void sent() {
   Serial.print("begin ");
@@ -299,7 +314,7 @@ void sent() {
 }
     
 ```
-First we created a function called sent, which tells the leds to blink 7 rapid times, to indicate the start and finish of the message. We used a for loop to do this. We also added the Serial.print command, just for us, the developers to see if the code is working. Then this is the second part of the code.
+We created a function called sent, which tells the leds to blink 7 rapid times, to indicate the start and finish of the message. We used a for loop to do this. We also added the Serial.print command, just for us, the developers to see if the code is working. Then this is the second part of the code.
 
 ```sh     
 void dot() {  // defining the dot function as one light being ON for one second 
@@ -516,7 +531,7 @@ for (int i = 0; i < strLen; i++) {
   } 
 }
 ```
-This code goes inside the sent function. This part of the code shows how the computer should translate each alphabet. Each alphabet has a different way of representing it in morse, and so by calling dot and dash functions we can determine how the leds should light differently, depending on the alphabet. For example, if the message was "cat", the led should blink as "dash dot dash dot wait dot dash wait dash wait". But before the message translation is initiated, the led would blink 7 times. Also at the end of the code above, there is a for loop created also to blink the leds 7 times, this time to indicate the finish of transimission. Overall it is a very long code although, this is the most line efficient code that we could come up with. Further evaluation of this code is done below in the [evaluation](#evaluation) section.
+This code goes inside the sent function. This part of the code shows how the computer should translate each alphabet. Each alphabet has a different way of representing it in morse, and so by calling dot and dash functions we can determine how the leds should light differently, depending on the alphabet. For example, if the message was "cat", the led should blink as "dash dot dash dot wait dot dash wait dash wait". But before the message translation is initiated, the led would blink 7 times. Also at the end of the code above, there is a for loop created also to blink the leds 7 times, this time to indicate the finish of transimission. When creating this code we used the morse alphabet table from the Wikipedia [6] to check on what alphabet is equal to what morse code. Overall it is a very long code although, this is the most line efficient code that we could come up with. Further evaluation of this code is done below in the [evaluation](#evaluation) section.
 
 ### Martian Decoder Step 3: Morse to English translation
 
@@ -719,13 +734,37 @@ Evaluation
 1. The display shows every possible alphabet the user can type in
 2. The character changes one by one, when button 1 is pressed
 
-![englishInput](ezgif.com-crop(1).gif)
+![EngInput](ezgif.com-crop(1).gif)
 
+This shows that all the alphabets can be shown just by pressing button 1. It cycles through every alphabet when the user presses the button, and when it reached the end it jumps back to A, and repeat the whole cycle. It also includes two modes, delete and send, which is exactly what is required. 
+
+### Success Criteria 3 and 4
+3. The character is selected when button 2 is pressed
+4. When the character is selected by the user, the message is updated
+
+As you can see in the gif, the selected character is printed on the new line down the cycling alphabets. This indicates that the letter has been successfully selected. Also simultaneously it updates the message, meaning that alphabets are appendable. 
+
+### Success Criteria 5. The user can delete the message character by character
+
+By selecting delete, the users are able to delete the unwanted alphabets. Therefore success criteria 5 is also accomplished. 
+
+### Success Criteria 6 and 7
+6. When SEND option is activated, it successfully translates english to morse, and delete the message on the display 
+7. Leds work
+
+By selecting send, english is translated in morse automatically, and is shown in the leds. This shows that the leds are correctly circuited without any mistake. Also the output of the led matches to what we expect to see, therefore the english to morse translation code must be correct. Furthermore after send is selected the message dissapears and resets itself, which passes the success criteria.
+
+### Success Criteria 8. The message in morse is able to be received by users successfully without misinterpretation
+
+### When MORSE option is selected, it displays new options on the display (".", "-", " ", "DEL", "RESET")
+
+We did not make a morse option inside the same arduino because it was a little complex. Although we created a seperate arduino that performs what it has to perform. In this gif you can see how the performance of this code is basically the same when focusing on input system. The only difference is the string array value, in this case which is morse alphabet, instead of the english character. It also has delete and reset option at the end, which what we are looking for. 
 
 Improvements
 ---------
 
-### 1. English Input System
+### 1. 
+
 
 
 
@@ -742,6 +781,8 @@ Resources
 [4] ComputerScienceWiki, "Feedback", "https://computersciencewiki.org/index.php/Feedback", 2019/11/28
 
 [5] Joe Posner, Roman Mars, "It's not you. Bad doors are everywhere", "https://www.youtube.com/watch?v=yY96hTb8WgI", 2019/12/03
+
+[6] Wikipedia, "Morse code", https://en.wikipedia.org/wiki/Morse_code, 2020/01/22
 
 
 
