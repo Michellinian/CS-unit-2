@@ -775,9 +775,18 @@ In this gif it shows the morse code of A. By selecting send, english is translat
 
 ### Success Criteria 8. The message in morse is able to be received by users successfully without misinterpretation
 
-### When MORSE option is selected, it displays new options on the display (".", "-", " ", "DEL", "RESET")
+### Succcess Criteria 9: When MORSE option is selected, it displays new options on the display (".", "-", " ", "DEL", "RESET")
 
 We did not make a morse option inside the same arduino because it was a little complex. Although we created a seperate arduino that performs what it has to perform. In this gif you can see how the performance of this code is basically the same when focusing on input system. The only difference is the string array value, in this case which is morse alphabet, instead of the english character. It also has delete and reset option at the end, which is what we are looking for. 
+
+### Success Criteria 10, 11, 12
+10. Button one changes the character one by one
+11. Button two selects the character and update the message 
+
+![Criteria1011](criteria1011.gif)
+
+This gif shows the morse to englsih translation code's execution. When the button on the left is pressed the user can go through every character. The gif unfortunately only shows the partial process, but it goes through the whole alphabet in morse. When it is selected, it automatically translates the morse code in english. This is where the code is a little bit different comparing to the inital plan. The initial plan was to have a receive option. When selecting the morse characters, the message would show the characters in morse, and when the receive option is selected, then morse is translated into english. Although during our development stage we decided to change it to the current program, considering the usability. Even though the program has changed, it still passes the success criteria, since the two buttons work exactly as they should, and the translation code is functioning correctly.
+
 
 Improvements
 ---------
