@@ -122,6 +122,15 @@ All these should be able to be manipulated by just 2 buttons. In this way, altho
 
 Throughout the whole process, we will be using the programming language: Arduino C. Since we need to test the program physically, an actual circuit was necessary, therefore Arduino C is the by far the most suitable programming language that we can use to test the program physically. Hence the circuit was created by using the Arduino UNO. This best fits with the programming language that we use. Also to test it virtually on computer, we used a software called Tinkercad. This also using the language arduino c, and we use this tool and test the code, before we actually try it out with the physical Arudino UNO. Virtual testing requires less effort and time, so we use this to get the code working correctly, and then finally testing it out on the real one. 
 
+### Test plan 
+
+| | Input | Output | Check (After development) |
+| --- | --- | --- | --- |
+| English Input System | button (English) | lcd display (English) | YES |
+| English to Morse translation | button (English) | leds (Morse) | YES |
+| Morse to English translation | button (Morse) | lcd display (English) | YES |
+
+
 Design
 ----
 
@@ -152,6 +161,10 @@ This flow chart shows the function convert. This program's functionality is to t
 
 Development
 -----
+
+### Circuit for unit 2
+
+
  
 ### Martian Decoder Step 1: Creating English input
 
@@ -775,6 +788,8 @@ In this gif it shows the morse code of A. By selecting send, english is translat
 
 ### Success Criteria 8. The message in morse is able to be received by users successfully without misinterpretation
 
+This section has no video as the video would be a veryl long one. Although this was also a success, since when trying out the morse, we could tell what the letters were, and what message was sent out only by looking at the leds. During the development stage we changed the time (leds on and off), to improve our codes, so that it was easier for us as well as the users to distinct the morse codes.
+
 ### Succcess Criteria 9: When MORSE option is selected, it displays new options on the display (".", "-", " ", "DEL", "RESET")
 
 ![Convert](convert.gif)
@@ -793,10 +808,37 @@ This gif shows the morse to englsih translation code's execution. When the butto
 Improvements
 ---------
 
-### 1. 
+### 1. Automatic runthrough of the alphabets
+
+One thing that we didn't get to modify due to time, was the input system. The current system requires the users to use two buttons. And of those two, one is used to cycle through the alphabets. If we could develop a system that cycles through all the alphabets and options with only one button it may be easier for the users, because they only need to use one button. Also sometimes the button can be laggy. When you want to find for example "Y", the user needs to press the button many times to get there, and this might be somewhat irritating for the users. If it was automatic the users don't have to push the button every time, reducing the amount of effort to find alphabets at the end. Although there is one problem to this new system. If they miss the alphabet that they were looking for, they need to wait for whole another cycle. Therefore if we can develop an option that says something like "REVERSE", for instance, then the problem would be solved. In this way, the effort of pressing the button so many times would be unnecessary, and the process would be a little smoother comparing to the manual system. 
+
+### 2. Indication of start and finish 
+
+As mentioned before in the [development](#development) section, our initial plan was to create a program, which emits light rapidly before the beginning and after the ending of the message transmission. This idea was to create a system so that the users would know exactly from where they should start recording the morse code. Without this it might be hard for them to receive messages because, the message might start abruptly when the clients are doing something else. To prevent confusion, it would be better to have a system such as the one mentioned above. This could've been developed with our skills and technique, although the code would always crash on tinkercad, when we tried to add the code, indicating to light the leds 7 times before and after the transmission. This is why we decided to move on without the system. Without the system it would still work well, but not as good as the system with the indication of start and end. 
 
 
+### 3. Morse Input 
 
+The current morse input system we created showed all the alphabets in morse, and the user had to select the code, by matching with what they saw with their eye. The morse input system cycled around the morse alphabets from A to Z, so even though the developers know what alphabet orders they are, the user do not. What I mean by this is that the user has to select the morse code that they think is the right one, therefore they don't know which morse code belongs to which alphabet unlike us the developers. Therefore what we could've rearranged is the order of the morse alphabet. We could've made the order like this: 
+```
+. 
+.. 
+... 
+.... 
+.- 
+..- 
+...-  
+etc.
+```
+This is a little hard to read although, basically it would have been easier of the morse code was organized by its pattern. This way the user might have sn easier chance of matching the morse code, because tehy can predict which morse code is arounf where. Thus they can start to notice that the morse code that they are looking for is close, because of the pattern of the previous morse code. Taking this even further, if we learned other types of input, then the job can be automated. For example if the arduino had a sensor that catches the light, and how long they are emitted, the user wouldn't have to do anything. The computer would determine what morse code is being sent to the station, and it can automatically tranlsate it for us using the sensors. Although this is not realistic, considering our knowledge and technique. But this is just some more ideas to make the process easier for the clients.
+
+### Integration of the 2 arduinos
+
+Furthermore in this program, we used two different arduino, one for sending out messages in morse code, and another, for receiving the message in english. This means that the user would have utilize the 2 arduinos to its fullest to do their task on communication. This is pretty simple enough, although if we can integrate both systems into one arduino it would be a lot easier. As mentioned earlier in the [development](#development) section, our initial plan was to build in the morse to english translation program inside the already existing arduino. Although there were few problems: 
+1. We didn't know how to update the string array values
+2. The code would be very long and confusing 
+
+Initially, we would have "MORSE" option within the first string array values containing english alphabets. When the user selects the morse option, the string array values would simultaneously change to morse alphabet list. Although we failed to integrate the array updating function in the program. It was simply hard for us to do that. Second of all, the code would inevitably be very long. We can add comments and indentation to make the code much easier to read, even with long lines, although since we started developing the morse to english translation code a week ago, we couldn't take the risk of debugging a very long code, if something went wrong with it. These are the reasons why we couldn't develop the integrated version of this program. This is a significant way of improving the code, because one is better than 2 seperate arduinos. It would be much simpler. 
 
 
 Resources
