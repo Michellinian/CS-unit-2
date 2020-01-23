@@ -777,6 +777,8 @@ In this gif it shows the morse code of A. By selecting send, english is translat
 
 ### Succcess Criteria 9: When MORSE option is selected, it displays new options on the display (".", "-", " ", "DEL", "RESET")
 
+![Convert](convert.gif)
+
 We did not make a morse option inside the same arduino because it was a little complex. Although we created a seperate arduino that performs what it has to perform. In this gif you can see how the performance of this code is basically the same when focusing on input system. The only difference is the string array value, in this case which is morse alphabet, instead of the english character. It also has delete and reset option at the end, which is what we are looking for. 
 
 ### Success Criteria 10, 11, 12
