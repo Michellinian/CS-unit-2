@@ -832,7 +832,7 @@ etc.
 ```
 This is a little hard to read although, basically it would have been easier of the morse code was organized by its pattern. This way the user might have sn easier chance of matching the morse code, because tehy can predict which morse code is arounf where. Thus they can start to notice that the morse code that they are looking for is close, because of the pattern of the previous morse code. Taking this even further, if we learned other types of input, then the job can be automated. For example if the arduino had a sensor that catches the light, and how long they are emitted, the user wouldn't have to do anything. The computer would determine what morse code is being sent to the station, and it can automatically tranlsate it for us using the sensors. Although this is not realistic, considering our knowledge and technique. But this is just some more ideas to make the process easier for the clients.
 
-### Integration of the 2 arduinos
+### 4. Integration of the 2 arduinos
 
 Furthermore in this program, we used two different arduino, one for sending out messages in morse code, and another, for receiving the message in english. This means that the user would have utilize the 2 arduinos to its fullest to do their task on communication. This is pretty simple enough, although if we can integrate both systems into one arduino it would be a lot easier. As mentioned earlier in the [development](#development) section, our initial plan was to build in the morse to english translation program inside the already existing arduino. Although there were few problems: 
 1. We didn't know how to update the string array values
