@@ -131,18 +131,23 @@ Design
 
 This is the over all flow of the program. There are 3 stations including earth, moon, and mars. They have a specific code that they can use to communicate. From Earth to Mars, the communication can be done because of the moon station converting morse to binary. 
 
-### English Input System
+### Flow chart 1: Selected function
 
-![EngInputFlow1](engInputFlow1.jpg)
-![EngInputFlow2](engInputFlow2.jpg)
+![selectfunc](select.jpg)
 
-This flow chart indicates the code of the english input system. The code is, according to the flow diagram, seperated into 4 functions, along with the initial variables settings in the beginning. One flaw of the program is that the function orders are different. Meaning that the execution order of the function should be different. I think the setup() and loop() should go after the other two functions, since they are the ones, who are actually running the code. One problem was that, this was the first time drawing a flow chart of a code including functions, so I did not know the correct way of doing that. I drew a red line next to the diagram to indicate that these line of codes belong to this function. 
+This select function is the function that is called when there one of the button is pressed by the user. When an alphabet is selected it prints out the last shown alphabet, onto the display. When delete option is pressed it delete the most recent character added to the message, and when the user selects send, it translates the message into morse, and reset the message to blank. This is what the if statements in the flow chart is showing. 
 
-**English -> Morse translation system**
+### Flow chart 2: Translation (Eng -> Morse)
 
-**Morse -> English translation system**
+![EngMorse](engtomorse.jpg)
 
+This flow chart only shows the partial code. This is the code for english to morse translation, and what it does it that it first of all checks how many characters are in the message that the user typed in. Then it cycles through the list of alphabet to check which alphabet is included in the message. When there is a match, it translates the alphabet into morse code. This process would be done over and over until it finishes going through every letter in the message. 
 
+### Flow chart 3: Translation (Morse -> Eng) 
+
+![MorseEng](morsetoeng.jpg)
+
+This flow chart shows the function convert. This program's functionality is to translate morse to english. The basic structure is very similar to the english to morse translation code. Instead of case, we used if statements, but except for that the, the way the code works is almost the same as the previous code.
 
 
 Development
@@ -575,7 +580,7 @@ void convert() {
     String key = "A"; 
     chosen += key;
   }
-  else if (text == ".-" ) {
+  else if (text == "-..." ) {
     String key = "B"; 
     chosen += key;
   }
